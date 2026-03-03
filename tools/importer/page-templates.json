@@ -1,0 +1,48 @@
+{
+  "templates": [
+    {
+      "name": "Vodafone Homepage",
+      "urls": [
+        "https://www.vodafone.es/c/particulares/es/"
+      ],
+      "description": "Main Vodafone Spain consumer homepage with hero carousel, pricing cards, product categories, promotional banners, entertainment section, benefits and plan selection.",
+      "blocks": [
+        {
+          "name": "carousel",
+          "instances": [
+            ".ws10-c-card-discovery-standard-medium-price",
+            "[class*='hero-banner']",
+            "[class*='carousel']"
+          ],
+          "section": "Hero section with promotional slides"
+        },
+        {
+          "name": "hero",
+          "instances": [
+            "[class*='banner-configurador']",
+            "[class*='cta-banner']"
+          ],
+          "section": "CTA banner section"
+        },
+        {
+          "name": "cards",
+          "instances": [
+            "[class*='pricing-card']",
+            "[class*='tarifa']",
+            "[class*='plan-card']"
+          ],
+          "section": "Pricing and plan cards"
+        },
+        {
+          "name": "columns",
+          "instances": [
+            "[class*='icon-feature']",
+            "[class*='split-layout']",
+            "[class*='two-column']"
+          ],
+          "section": "Feature columns and split layouts"
+        }
+      ]
+    }
+  ]
+}
