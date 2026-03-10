@@ -241,6 +241,48 @@
   left: calc(50% - 2px);
 }
 
+/* ===== Red gradient variant for alternating slides (matches original Vodafone) ===== */
+.carousel .carousel-slide:nth-child(odd) {
+  background: linear-gradient(45deg, rgb(130 0 0) 0%, rgb(230 0 0) 100%);
+}
+
+.carousel .carousel-slide:nth-child(odd) .carousel-slide-content {
+  color: var(--color-white);
+}
+
+.carousel .carousel-slide:nth-child(odd) .carousel-slide-content h2 {
+  color: var(--color-white);
+}
+
+.carousel .carousel-slide:nth-child(odd) .carousel-slide-content p {
+  color: var(--color-white);
+}
+
+/* Red slide: price description stays white */
+.carousel .carousel-slide:nth-child(odd) .carousel-slide-content p:nth-child(4) {
+  color: var(--color-white);
+}
+
+/* Red slide: badge stays teal */
+
+/* Red slide: "Más info" button - white outline */
+.carousel .carousel-slide:nth-child(odd) .carousel-slide-content p:nth-last-child(2) a.button:any-link {
+  background-color: transparent;
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+.carousel .carousel-slide:nth-child(odd) .carousel-slide-content p:nth-last-child(2) a.button:hover {
+  background-color: rgb(255 255 255 / 15%);
+}
+
+/* Red slide: "Lo quiero" button - white filled */
+.carousel .carousel-slide:nth-child(odd) .carousel-slide-content p:last-child a.button:any-link {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-black);
+}
+
 /* Mobile: stack vertically, image on top */
 @media (width < 600px) {
   .carousel .carousel-slide {

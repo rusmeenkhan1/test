@@ -5,7 +5,7 @@
 }
 
 .hero-container {
-  border-bottom: 1px solid var(--color-light-grey);
+  border-bottom: none;
 }
 
 .hero {
