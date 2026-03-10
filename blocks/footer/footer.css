@@ -1,4 +1,4 @@
-/* Vodafone footer - dark background with social links and legal */
+/* Vodafone footer - dark background matching original site */
 footer {
   background-color: #000;
   color: var(--color-white);
@@ -10,7 +10,7 @@ footer .footer > div {
   max-width: var(--section-max-width);
 }
 
-/* All paragraphs - base styles */
+/* All paragraphs and links - base styles */
 footer .footer p {
   margin: 4px 0;
 }
@@ -25,7 +25,7 @@ footer .footer a:hover {
   text-decoration: none;
 }
 
-/* Social links row (first section) */
+/* ===== Section 1: Social links row ===== */
 footer .footer .section:first-child {
   border-bottom: 1px solid #333;
 }
@@ -56,7 +56,86 @@ footer .footer .section:first-child a:hover {
   text-decoration: none;
 }
 
-/* Legal links row (last section) */
+/* ===== Section 2: Link grid ===== */
+footer .footer .section:nth-child(2) .default-content-wrapper {
+  padding: 0 22.5px;
+}
+
+/* The grid container */
+footer .footer .footer-link-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 0;
+}
+
+/* Individual column */
+footer .footer .footer-link-column {
+  border-bottom: 1px solid #333;
+}
+
+/* Column title (acts as accordion trigger on mobile) */
+footer .footer .footer-column-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 0;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+footer .footer .footer-column-title::after {
+  content: '+';
+  font-size: 20px;
+  font-weight: 300;
+  color: #999;
+  transition: transform 0.2s;
+}
+
+footer .footer .footer-column-title[aria-expanded="true"]::after {
+  content: '−';
+}
+
+/* Column links list */
+footer .footer .footer-column-links {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 16px;
+  display: none;
+}
+
+footer .footer .footer-column-title[aria-expanded="true"] + .footer-column-links {
+  display: block;
+}
+
+footer .footer .footer-column-links li {
+  margin: 0;
+  padding: 0;
+}
+
+/* stylelint-disable no-descending-specificity */
+footer .footer .footer-column-links a {
+  display: block;
+  padding: 6px 0;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+footer .footer .footer-column-links a:hover {
+  color: var(--color-white);
+}
+/* stylelint-enable no-descending-specificity */
+
+/* ===== Section 3: Legal links + copyright ===== */
 footer .footer .section:last-child .default-content-wrapper {
   padding: 16px 22.5px;
   border-top: 1px solid #333;
@@ -71,6 +150,7 @@ footer .footer .section:last-child p:first-child {
   gap: 8px 16px;
   flex-wrap: wrap;
   font-size: 0;
+  justify-content: center;
 }
 
 footer .footer .section:last-child p:first-child a {
@@ -85,8 +165,48 @@ footer .footer .section:last-child p:first-child a:hover {
 }
 
 /* Copyright text */
-footer .footer .section:last-child p:last-child {
+footer .footer .section:last-child p:nth-child(2),
+footer .footer .section:last-child p:nth-child(3) {
   color: #999;
   font-size: 12px;
-  margin-top: 12px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+footer .footer .section:last-child p:nth-child(3) {
+  margin-top: 0;
+}
+
+/* ===== Desktop layout (4-column grid) ===== */
+@media (width >= 900px) {
+  footer .footer .footer-link-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 40px;
+    padding: 32px 0;
+  }
+
+  footer .footer .footer-link-column {
+    border-bottom: none;
+  }
+
+  /* On desktop, titles are just headings, not buttons */
+  footer .footer .footer-column-title {
+    cursor: default;
+    padding: 0 0 12px;
+    font-size: 16px;
+  }
+
+  footer .footer .footer-column-title::after {
+    display: none;
+  }
+
+  /* Always show links on desktop */
+  footer .footer .footer-column-links {
+    display: block;
+    padding: 0;
+  }
+
+  footer .footer .footer-column-links a {
+    padding: 4px 0;
+  }
 }
