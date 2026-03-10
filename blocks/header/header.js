@@ -137,7 +137,20 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   }
 
-  // decorate topbar - strip button styling from links
+  // helper: create an icon element
+  function createIcon(name) {
+    const span = document.createElement('span');
+    span.className = `icon icon-${name}`;
+    const img = document.createElement('img');
+    img.dataset.iconName = name;
+    img.src = `/icons/${name}.svg`;
+    img.loading = 'lazy';
+    img.alt = '';
+    span.append(img);
+    return span;
+  }
+
+  // decorate topbar - strip button styling, add icons and chevrons
   const navTopbar = nav.querySelector('.nav-topbar');
   if (navTopbar) {
     navTopbar.querySelectorAll('a').forEach((a) => {
@@ -145,9 +158,28 @@ export default async function decorate(block) {
       const container = a.closest('.button-container');
       if (container) container.classList.remove('button-container');
     });
+
+    const topItems = navTopbar.querySelectorAll('li');
+    topItems.forEach((li) => {
+      const text = li.textContent.trim();
+      const link = li.querySelector('a');
+      // "Autónomos y Empresas" — add chevron class
+      if (text.includes('Autónomos')) {
+        li.classList.add('topbar-dropdown');
+      }
+      // "Ayuda" — add help icon
+      if (text.includes('Ayuda') && link) {
+        link.prepend(createIcon('help'));
+      }
+      // "Castellano" — add globe icon and chevron
+      if (text.includes('Castellano') && !link) {
+        li.prepend(createIcon('globe'));
+        li.classList.add('topbar-dropdown');
+      }
+    });
   }
 
-  // decorate tools - strip default button styling, mark CTA
+  // decorate tools - strip default button styling, mark CTA, add icons
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
     navTools.querySelectorAll('a').forEach((a) => {
@@ -157,6 +189,9 @@ export default async function decorate(block) {
       if (container) container.classList.remove('button-container');
       if (isCta) {
         a.classList.add('nav-cta');
+        a.prepend(createIcon('phone'));
+      } else if (a.textContent.trim().includes('Soy cliente')) {
+        a.prepend(createIcon('person'));
       }
     });
   }

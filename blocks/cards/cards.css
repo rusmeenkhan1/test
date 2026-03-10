@@ -1,4 +1,8 @@
-/* Pricing cards - Vodafone plan card layout */
+/* =========================================================
+   Cards block – Vodafone pricing, product category & benefit variants
+   ========================================================= */
+
+/* Base card list */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -8,6 +12,7 @@
   gap: 16px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .cards > ul > li {
   background-color: var(--background-color);
   border-radius: 16px;
@@ -90,6 +95,7 @@
   flex: 1;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .cards .cards-card-body ul li {
   padding: 8px 0;
   border-bottom: 1px solid var(--color-light-grey);
@@ -103,7 +109,7 @@
 /* CTA links in cards */
 .cards .cards-card-body a.button:any-link {
   font-size: var(--body-font-size-s);
-  padding: 8px 20px;
+  padding: 8px 24px;
   margin: 4px 0;
   display: inline-block;
 }
@@ -133,14 +139,125 @@
   font-size: var(--body-font-size-s);
 }
 
+/* =========================================================
+   Product category cards (with images - horizontal scroll)
+   In "light-grey" sections, cards show as product categories
+   ========================================================= */
+
+/* stylelint-disable-next-line no-descending-specificity */
+.section.light-grey .cards > ul {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  padding-bottom: 8px;
+}
+
+.section.light-grey .cards > ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.section.light-grey .cards > ul > li {
+  flex: 0 0 140px;
+  scroll-snap-align: start;
+  border: none;
+  background: none;
+  text-align: center;
+  border-radius: 0;
+}
+
+.section.light-grey .cards > ul > li img {
+  width: 120px;
+  height: 120px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid #e0e0e0;
+  background-color: var(--color-white);
+}
+
+.section.light-grey .cards .cards-card-body {
+  padding: 8px 4px;
+  text-align: center;
+}
+
+.section.light-grey .cards .cards-card-body a.button:any-link {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  padding: 4px 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.section.light-grey .cards .cards-card-body a.button:hover {
+  color: var(--color-red);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   Benefit cards ("Lo mejor de ser de Vodafone")
+   Cards without images, text-only, centered layout
+   ========================================================= */
+
+.section.cards-container:not(.columns-container, .light-grey) .cards > ul > li {
+  text-align: center;
+  border: none;
+  background: none;
+}
+
+.section.cards-container:not(.columns-container, .light-grey) .cards .cards-card-body {
+  padding: 16px;
+  align-items: center;
+}
+
+.section.cards-container:not(.columns-container, .light-grey) .cards .cards-card-body > p:first-child strong {
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.section.cards-container:not(.columns-container, .light-grey) .cards .cards-card-body a.button:any-link {
+  background-color: transparent;
+  border: 2px solid var(--color-red);
+  color: var(--color-red);
+  font-size: var(--body-font-size-s);
+  padding: 8px 24px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.section.cards-container:not(.columns-container, .light-grey) .cards .cards-card-body a.button:hover {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
 @media (width >= 600px) {
   .cards > ul {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section.light-grey .cards > ul > li {
+    flex: 0 0 160px;
   }
 }
 
 @media (width >= 900px) {
   .cards > ul {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .section.light-grey .cards > ul > li {
+    flex: 0 0 180px;
+  }
+
+  .section.light-grey .cards > ul > li img {
+    width: 140px;
+    height: 140px;
   }
 }

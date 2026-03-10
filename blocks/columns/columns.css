@@ -1,3 +1,7 @@
+/* =========================================================
+   Columns block – responsive layout with variant styles
+   ========================================================= */
+
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -20,7 +24,10 @@
   border-radius: 16px;
 }
 
-/* 3 column layout - benefit icons/features */
+/* =========================================================
+   3 column layout – benefit feature pills
+   ========================================================= */
+
 .columns.columns-3-cols > div {
   gap: 16px;
   text-align: center;
@@ -34,7 +41,10 @@
   font-weight: 400;
 }
 
-/* 1 column layout - centered heading */
+/* =========================================================
+   1 column layout – centered heading
+   ========================================================= */
+
 .columns.columns-1-cols {
   text-align: center;
 }
@@ -44,7 +54,10 @@
   margin: 0;
 }
 
-/* 2 column layout - Vodafone TV dark card style */
+/* =========================================================
+   2 column layout – Vodafone TV dark card (in light-grey sections)
+   ========================================================= */
+
 .section.light-grey > .columns-wrapper:only-child {
   padding: 0;
 }
@@ -66,6 +79,7 @@
   color: var(--color-white);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .columns.columns-2-cols p {
   font-size: var(--body-font-size-s);
   line-height: 1.5;
@@ -87,6 +101,50 @@
 .columns.columns-2-cols a.button:hover {
   background-color: var(--color-red-hover);
   border-color: var(--color-red-hover);
+}
+
+/* =========================================================
+   Plan Amigo – red banner (2-col inside light-grey section)
+   Detect via columns that contain "Plan Amigo" content
+   ========================================================= */
+
+.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) {
+  background-color: var(--color-red);
+  border-radius: 16px;
+  overflow: hidden;
+  color: var(--color-white);
+}
+
+.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) > div > div:not(.columns-img-col) {
+  padding: 32px 24px;
+}
+
+.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) p {
+  color: var(--color-white);
+  margin: 8px 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) strong {
+  color: var(--color-white);
+}
+
+.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) a.button:any-link {
+  background-color: transparent;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+  font-size: var(--body-font-size-s);
+  padding: 8px 24px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) a.button:hover {
+  background-color: var(--color-white);
+  color: var(--color-red);
+}
+
+.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) > div > .columns-img-col img {
+  border-radius: 0;
 }
 
 @media (width >= 600px) {
@@ -112,6 +170,10 @@
   }
 
   .columns.columns-2-cols > div > div:not(.columns-img-col) {
-    padding: 24px;
+    padding: 40px 32px;
+  }
+
+  .section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) > div > div:not(.columns-img-col) {
+    padding: 48px 32px;
   }
 }

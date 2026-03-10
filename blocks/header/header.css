@@ -51,11 +51,32 @@ header .nav-topbar li:last-child strong {
   font-weight: 700;
 }
 
+/* topbar icons */
+header .nav-topbar .icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+header .nav-topbar .icon img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+/* topbar dropdown chevron */
+header .nav-topbar .topbar-dropdown {
+  cursor: pointer;
+}
+
 /* stylelint-disable-next-line no-descending-specificity */
 header .nav-topbar a:any-link {
   color: var(--color-white);
   text-decoration: none;
   font-size: var(--body-font-size-xs);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -99,7 +120,7 @@ header nav a:any-link {
   text-decoration: none;
 }
 
-/* hamburger - now on the right */
+/* hamburger - on the right */
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -183,6 +204,7 @@ header .nav-brand {
   line-height: 1;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 header nav .nav-brand img {
   width: 48px;
   height: 48px;
@@ -235,14 +257,42 @@ header nav .nav-tools p {
   margin: 0;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 header nav .nav-tools a:any-link {
   font-size: var(--body-font-size-xs);
   text-decoration: none;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* mobile: hide "Soy cliente" text, show only person icon */
+header nav .nav-tools a:not(.nav-cta) .icon + br,
+header nav .nav-tools a:not(.nav-cta) {
+  font-size: 0;
+}
+
+header nav .nav-tools a:not(.nav-cta) .icon {
+  font-size: initial;
+}
+
+/* tools icons */
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-tools .icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+header nav .nav-tools .icon img {
+  width: 22px;
+  height: 22px;
 }
 
 /* "¿Te llamamos?" CTA button - hidden on mobile, shown on desktop */
-header nav .nav-tools .nav-cta {
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-tools a.nav-cta {
   display: none;
   background-color: var(--color-green);
   color: var(--color-white);
@@ -254,14 +304,20 @@ header nav .nav-tools .nav-cta {
   border: 0;
 }
 
-header nav .nav-tools .nav-cta:hover {
+header nav .nav-tools a.nav-cta:hover {
   background-color: #007300;
   color: var(--color-white);
   text-decoration: none;
 }
 
-header nav .nav-tools .nav-cta strong {
+header nav .nav-tools a.nav-cta strong {
   font-weight: 400;
+}
+
+header nav .nav-tools a.nav-cta .icon img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
 }
 
 /* desktop layout */
@@ -291,7 +347,10 @@ header nav .nav-tools .nav-cta strong {
   /* stylelint-disable-next-line no-descending-specificity */
   header .nav-topbar li {
     display: flex;
+    align-items: center;
     padding: 4px 16px;
+    gap: 6px;
+    font-size: 14px;
   }
 
   /* active segment tab (Particulares) */
@@ -304,9 +363,29 @@ header nav .nav-tools .nav-cta strong {
     font-weight: 400;
   }
 
+  /* topbar dropdown chevron on desktop */
+  header .nav-topbar .topbar-dropdown::after {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid var(--color-white);
+    border-right: 1px solid var(--color-white);
+    transform: rotate(135deg);
+    margin-left: 4px;
+    position: relative;
+    top: -2px;
+  }
+
   /* push right-side items (Ayuda, Castellano, phone) */
   header .nav-topbar li:nth-child(3) {
     margin-left: auto;
+  }
+
+  /* topbar icon size on desktop */
+  header .nav-topbar .icon img {
+    width: 18px;
+    height: 18px;
   }
 
   header nav {
@@ -366,14 +445,15 @@ header nav .nav-tools .nav-cta strong {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 24px;
+    gap: 0;
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
+    padding: 0 16px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -384,7 +464,7 @@ header nav .nav-tools .nav-cta strong {
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
     display: block;
     position: absolute;
-    left: -24px;
+    left: -8px;
     width: 200px;
     top: 150%;
     padding: 16px;
@@ -408,7 +488,7 @@ header nav .nav-tools .nav-cta strong {
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
-    font-size: var(--body-font-size-s);
+    font-size: 18px;
   }
 
   /* tools desktop layout */
@@ -423,11 +503,21 @@ header nav .nav-tools .nav-cta strong {
     gap: 20px;
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-tools a:any-link {
-    font-size: 18px;
+    font-size: 20px;
   }
 
-  header nav .nav-tools .nav-cta {
-    display: inline-block;
+  /* desktop: show Soy cliente text */
+  header nav .nav-tools a:not(.nav-cta) {
+    font-size: 20px;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-tools a.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 18px;
   }
 }
