@@ -1,1 +1,250 @@
 /* add global styles that can be loaded post LCP here */
+
+/* Hide leaked cookie consent / tracking content in carousel section */
+.carousel-container > .default-content-wrapper {
+  display: none;
+}
+
+/* Hide leaked cookie consent dialog - target wrappers containing cookie/privacy headings */
+.section > .default-content-wrapper:has([id*="privacidad"], [id*="cookies"]) {
+  display: none;
+}
+
+/* =====================================================
+   PRODUCT CATEGORY CARDS (table-based card grid)
+   - Section with ul > li > table structure
+   ===================================================== */
+main .section > div > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+main .section > div > ul > li {
+  min-width: 0;
+}
+
+main .section > div > ul > li > table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--background-color);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  overflow: hidden;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+
+main .section > div > ul > li > table:hover {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 16%);
+}
+
+/* Hide "Cards" header row in undecorated card tables */
+main .section > div > ul > li > table tr:first-child:has(td[colspan]),
+main .section > div > ul > li > table tr:first-child:has(td:only-child) {
+  display: none;
+}
+
+main .section > div > ul > li > table td {
+  padding: 12px 8px;
+  vertical-align: middle;
+}
+
+main .section > div > ul > li > table td img {
+  max-width: 64px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+main .section > div > ul > li > table td strong a {
+  color: var(--text-color);
+  font-size: var(--body-font-size-xs);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+main .section > div > ul > li > table td strong a:hover {
+  color: var(--link-color);
+}
+
+/* =====================================================
+   PLAN AMIGO SECTION
+   - Red banner with text left, image right
+   - Identified by "Plan Amigo" text + image content
+   ===================================================== */
+main .section.light-grey > .default-content-wrapper {
+  margin-bottom: 16px;
+}
+
+/* Plan Amigo banner styling */
+main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border-radius: 16px;
+  padding: 32px;
+  overflow: hidden;
+  position: relative;
+}
+
+main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) p {
+  color: var(--color-white);
+  margin: 8px 0;
+}
+
+main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) p:first-child {
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) a.button:any-link {
+  background-color: transparent;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+  font-size: var(--body-font-size-s);
+  padding: 8px 24px;
+}
+
+main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) a.button:hover {
+  background-color: rgb(255 255 255 / 20%);
+}
+
+main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) img {
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+@media (width >= 900px) {
+  main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 24px;
+    padding: 40px;
+  }
+
+  main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) img {
+    margin-top: 0;
+    grid-row: 1 / span 4;
+    grid-column: 2;
+    max-height: 280px;
+    object-fit: contain;
+  }
+}
+
+/* =====================================================
+   ENTERTAINMENT HEADING ("Todo el entretenimiento...")
+   - Centered heading above Vodafone TV section
+   ===================================================== */
+main .section.light-grey .columns.columns-1-cols {
+  text-align: center;
+  padding: 32px 0 0;
+}
+
+/* =====================================================
+   BENEFITS SECTION (cards with icons)
+   - "Lo mejor de ser de Vodafone" cards
+   ===================================================== */
+main .section > .cards-wrapper .cards > ul > li {
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+}
+
+/* Benefits cards without images - icon + title + description */
+main .section > .cards-wrapper .cards > ul > li:not(:has(.cards-card-image)) {
+  text-align: center;
+  padding: 16px;
+}
+
+main .section > .cards-wrapper .cards > ul > li:not(:has(.cards-card-image)) .cards-card-body {
+  padding: 8px;
+}
+
+/* =====================================================
+   CHOOSE YOUR PLAN SECTION
+   - 3-column card grid at bottom
+   ===================================================== */
+main .section > .default-content-wrapper + ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section > .default-content-wrapper + ul > li > table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--background-color);
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  padding: 24px;
+  transition: box-shadow 0.2s;
+}
+
+main .section > .default-content-wrapper + ul > li > table:hover {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+}
+
+/* Hide "Cards" header row */
+main .section > .default-content-wrapper + ul > li > table tr:first-child:has(td[colspan]),
+main .section > .default-content-wrapper + ul > li > table tr:first-child:has(td:only-child) {
+  display: none;
+}
+
+main .section > .default-content-wrapper + ul > li > table td {
+  padding: 16px;
+}
+
+main .section > .default-content-wrapper + ul > li > table td strong {
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  display: block;
+}
+
+@media (width >= 900px) {
+  main .section > .default-content-wrapper + ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =====================================================
+   LEGAL LINK SECTION (bottom)
+   - "Ver condiciones legales" link
+   ===================================================== */
+main .section.light-grey > .default-content-wrapper:only-child {
+  text-align: right;
+  padding: 16px 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.light-grey > .default-content-wrapper:only-child p {
+  margin: 0;
+}
+
+main .section.light-grey > .default-content-wrapper:only-child a.button:any-link {
+  background-color: transparent;
+  border: none;
+  color: var(--link-color);
+  font-size: var(--body-font-size-xs);
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+main .section.light-grey > .default-content-wrapper:only-child a.button:hover {
+  background-color: transparent;
+  border: none;
+  color: var(--link-hover-color);
+}

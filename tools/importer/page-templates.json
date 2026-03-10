@@ -10,37 +10,149 @@
         {
           "name": "carousel",
           "instances": [
-            ".ws10-c-card-discovery-standard-medium-price",
-            "[class*='hero-banner']",
-            "[class*='carousel']"
-          ],
-          "section": "Hero section with promotional slides"
+            ".ws10-m-cards-discovery-standard-medium-price"
+          ]
         },
         {
           "name": "hero",
           "instances": [
-            "[class*='banner-configurador']",
-            "[class*='cta-banner']"
-          ],
-          "section": "CTA banner section"
+            ".ws10-m-banner-slim"
+          ]
         },
         {
           "name": "cards",
           "instances": [
-            "[class*='pricing-card']",
-            "[class*='tarifa']",
-            "[class*='plan-card']"
-          ],
-          "section": "Pricing and plan cards"
+            ".ws10-m-card-rate-list",
+            ".ws10-c-image-strip-element",
+            "[class*='ws10-c-card-addons']",
+            ".ws10-m-module-hifi"
+          ]
         },
         {
           "name": "columns",
           "instances": [
-            "[class*='icon-feature']",
-            "[class*='split-layout']",
-            "[class*='two-column']"
+            ".ws10-m-mobile-pdp-one",
+            ".ws10-m-text-image",
+            ".ws10-m-header-section"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero-carousel",
+          "name": "Hero Carousel",
+          "selector": "[id='1500291321140']",
+          "style": null,
+          "blocks": [
+            "carousel"
           ],
-          "section": "Feature columns and split layouts"
+          "defaultContent": []
+        },
+        {
+          "id": "cta-banner",
+          "name": "Configure CTA Banner",
+          "selector": "[id='1500274593285']",
+          "style": null,
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "pricing-cards",
+          "name": "Pricing Cards",
+          "selector": "[id='1500274808009']",
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "devices-header",
+          "name": "Devices Header",
+          "selector": ".ws10-m-mobile-pdp-one",
+          "style": "light-grey",
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": [
+            ".ws10-c-title-standard"
+          ]
+        },
+        {
+          "id": "product-categories",
+          "name": "Product Category Carousel",
+          "selector": ".ws10-m-carousel-secondary",
+          "style": "light-grey",
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "plan-amigo",
+          "name": "Plan Amigo Banner",
+          "selector": ".ws10-m-text-image",
+          "style": "light-grey",
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "entertainment-heading",
+          "name": "Entertainment Heading",
+          "selector": "[id='1500274630799']",
+          "style": "light-grey",
+          "blocks": [],
+          "defaultContent": [
+            ".ws10-c-title-standard"
+          ]
+        },
+        {
+          "id": "vodafone-tv",
+          "name": "Vodafone TV",
+          "selector": ".ws10-m-header-section",
+          "style": "dark",
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "benefits",
+          "name": "Benefits Cards",
+          "selector": "[class*='ws10-m-addons']",
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            ".ws10-c-title-standard"
+          ]
+        },
+        {
+          "id": "choose-plan",
+          "name": "Choose Your Plan",
+          "selector": ".ws10-m-module-hifi",
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            ".ws10-c-title-standard"
+          ]
+        },
+        {
+          "id": "legal",
+          "name": "Legal Link",
+          "selector": "[id='1500274604051']",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "a[href*='legales']"
+          ]
         }
       ]
     }

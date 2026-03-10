@@ -11,62 +11,84 @@
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  /* Vodafone brand colors */
+  --color-red: #e60000;
+  --color-red-hover: #c71616;
+  --color-green: #008a00;
+  --color-teal: #00697c;
+  --color-black: #0d0d0d;
+  --color-dark-grey: #222;
+  --color-grey: #666;
+  --color-light-grey: #f2f2f2;
+  --color-white: #fff;
+
+  /* semantic colors */
+  --background-color: var(--color-white);
+  --light-color: var(--color-light-grey);
+  --dark-color: var(--color-black);
+  --text-color: var(--color-black);
+  --link-color: var(--color-red);
+  --link-hover-color: var(--color-red-hover);
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: vodafone, vodafone-fallback, helvetica, arial, sans-serif;
+  --heading-font-family: vodafone, vodafone-fallback, helvetica, arial, sans-serif;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 18px;
+  --body-font-size-s: 16px;
+  --body-font-size-xs: 14px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  /* heading sizes (mobile first) */
+  --heading-font-size-xxl: 32px;
+  --heading-font-size-xl: 28px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
 
-  /* nav height */
-  --nav-height: 64px;
+  /* spacing */
+  --spacing-xs: 8px;
+  --spacing-s: 16px;
+  --spacing-m: 24px;
+  --spacing-l: 32px;
+  --spacing-xl: 48px;
+  --spacing-xxl: 64px;
+
+  /* buttons */
+  --button-border-radius: 100px;
+  --button-padding: 8px 28px;
+  --button-transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  /* nav height (includes topbar + nav bar) */
+  --nav-height: 88px;
+
+  /* layout */
+  --section-max-width: 1440px;
 }
 
-/* fallback fonts */
+/* fallback font */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
+  font-family: vodafone-fallback;
+  size-adjust: 100%;
+  src: local("Helvetica"), local("Arial");
 }
 
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
+@media (width >= 600px) {
+  :root {
+    --nav-height: 96px;
+  }
 }
 
 @media (width >= 900px) {
   :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
+    --heading-font-size-xxl: 40px;
+    --heading-font-size-xl: 32px;
     --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
+    --heading-font-size-m: 24px;
     --heading-font-size-s: 20px;
     --heading-font-size-xs: 18px;
+    --nav-height: 98px;
   }
 }
 
@@ -77,7 +99,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  line-height: 1.44;
 }
 
 body.appear {
@@ -107,7 +129,7 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-weight: 300;
   line-height: 1.25;
   scroll-margin: 40px;
 }
@@ -143,7 +165,7 @@ pre {
 }
 
 main > div {
-  margin: 40px 16px;
+  margin: 0 16px;
 }
 
 input,
@@ -172,41 +194,53 @@ button {
   display: inline-block;
   max-width: 100%;
   margin: 12px 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
+  border: 2px solid var(--color-red);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
   font-family: var(--body-font-family);
   font-style: normal;
-  font-weight: 500;
-  line-height: 1.25;
+  font-weight: 400;
+  font-size: var(--body-font-size-m);
+  line-height: 1.44;
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
+  background-color: var(--color-red);
+  color: var(--color-white);
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: var(--button-transition);
 }
 
 a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--link-hover-color);
+  background-color: var(--color-red-hover);
+  border-color: var(--color-red-hover);
   cursor: pointer;
 }
 
 button:disabled,
 button:disabled:hover {
   background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--color-grey);
   cursor: unset;
 }
 
 a.button.secondary,
 button.secondary {
-  background-color: unset;
+  background-color: transparent;
   border: 2px solid currentcolor;
+  color: var(--text-color);
+}
+
+a.button.secondary:hover,
+button.secondary:hover {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
   color: var(--text-color);
 }
 
@@ -229,29 +263,71 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  margin: 0;
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: var(--section-max-width);
   margin: auto;
-  padding: 0 24px;
-}
-
-main > .section:first-of-type {
-  margin-top: 0;
+  padding: var(--spacing-l) var(--spacing-s);
 }
 
 @media (width >= 900px) {
   main > .section > div {
-    padding: 0 32px;
+    padding: var(--spacing-xl) 22.5px;
   }
 }
 
-/* section metadata */
+/* section metadata variants */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
+}
+
+main .section.light-grey {
+  background-color: var(--color-light-grey);
+}
+
+main .section.dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+main .section.dark h1,
+main .section.dark h2,
+main .section.dark h3,
+main .section.dark h4,
+main .section.dark h5,
+main .section.dark h6 {
+  color: var(--color-white);
+}
+
+main .section.dark a:any-link {
+  color: var(--color-white);
+}
+
+main .section.dark a.button:any-link {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-black);
+}
+
+main .section.dark a.button:hover {
+  background-color: var(--color-light-grey);
+  border-color: var(--color-light-grey);
+}
+
+/* strong headings - Vodafone uses bold weight for emphasis headings */
+h2 strong {
+  font-weight: 700;
+}
+
+/* Hide first section h1 (page title used for SEO, not displayed on original) */
+main > .section:first-child > .default-content-wrapper:first-child > h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

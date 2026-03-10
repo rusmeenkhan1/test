@@ -17,17 +17,101 @@
 
 .columns > div > .columns-img-col img {
   display: block;
+  border-radius: 16px;
+}
+
+/* 3 column layout - benefit icons/features */
+.columns.columns-3-cols > div {
+  gap: 16px;
+  text-align: center;
+}
+
+.columns.columns-3-cols > div > div {
+  background-color: var(--background-color);
+  border-radius: 16px;
+  padding: 16px;
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+}
+
+/* 1 column layout - centered heading */
+.columns.columns-1-cols {
+  text-align: center;
+}
+
+.columns.columns-1-cols h2 {
+  font-weight: 700;
+  margin: 0;
+}
+
+/* 2 column layout - Vodafone TV dark card style */
+.section.light-grey > .columns-wrapper:only-child {
+  padding: 0;
+}
+
+.section.light-grey .columns.columns-2-cols {
+  background-color: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  color: var(--color-white);
+}
+
+.columns.columns-2-cols > div > div:not(.columns-img-col) {
+  padding: 24px;
+}
+
+.columns.columns-2-cols h2 {
+  margin-top: 0;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.columns.columns-2-cols p {
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  color: var(--color-white);
+}
+
+.columns.columns-2-cols > div > .columns-img-col img {
+  border-radius: 0;
+}
+
+.columns.columns-2-cols a.button:any-link {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+  color: var(--color-white);
+  font-size: var(--body-font-size-s);
+  padding: 8px 24px;
+}
+
+.columns.columns-2-cols a.button:hover {
+  background-color: var(--color-red-hover);
+  border-color: var(--color-red-hover);
+}
+
+@media (width >= 600px) {
+  .columns.columns-3-cols > div {
+    flex-direction: row;
+  }
+
+  .columns.columns-3-cols > div > div {
+    flex: 1;
+  }
 }
 
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
-    gap: 24px;
+    gap: 32px;
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+
+  .columns.columns-2-cols > div > div:not(.columns-img-col) {
+    padding: 24px;
   }
 }

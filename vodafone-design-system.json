@@ -1,0 +1,349 @@
+{
+  "source": "https://www.vodafone.es/c/particulares/es/",
+  "extractedAt": "2026-03-10",
+  "designSystem": "WS10 (Vodafone Web Standard 10)",
+
+  "fonts": {
+    "primaryFamily": "vodafone, Helvetica, Arial, sans-serif",
+    "headerFooterFamily": "Vodafone, Arial, sans-serif",
+    "fallbackStack": "Helvetica, Arial, sans-serif",
+    "fontFaces": [
+      {
+        "family": "Vodafone",
+        "weight": "300",
+        "style": "normal",
+        "label": "Vodafone Light",
+        "display": "swap",
+        "sources": {
+          "woff2": "https://www.vodafone.es/c/statics/fonts/vodafone-light.woff2",
+          "woff": "https://www.vodafone.es/c/statics/fonts/vodafone-light.woff"
+        }
+      },
+      {
+        "family": "Vodafone",
+        "weight": "400",
+        "style": "normal",
+        "label": "Vodafone Regular",
+        "display": "swap",
+        "sources": {
+          "woff2": "https://www.vodafone.es/c/statics/fonts/vodafone-regular.woff2",
+          "woff": "https://www.vodafone.es/c/statics/fonts/vodafone-regular.woff"
+        }
+      },
+      {
+        "family": "Vodafone",
+        "weight": "700",
+        "style": "normal",
+        "label": "Vodafone Bold",
+        "display": "swap",
+        "sources": {
+          "woff2": "https://www.vodafone.es/c/statics/fonts/vodafone-bold.woff2",
+          "woff": "https://www.vodafone.es/c/statics/fonts/vodafone-bold.woff"
+        }
+      },
+      {
+        "family": "Vodafone",
+        "weight": "800",
+        "style": "normal",
+        "label": "Vodafone Extra Bold",
+        "display": "swap",
+        "sources": {
+          "woff2": "https://www.vodafone.es/c/statics/fonts/vodafone-extra-bold.woff2",
+          "woff": "https://www.vodafone.es/c/statics/fonts/vodafone-extra-bold.woff"
+        }
+      }
+    ],
+    "legacyAliases": [
+      { "family": "VodafoneLight", "mapsTo": "Vodafone weight 300" },
+      { "family": "VodafoneRegular", "mapsTo": "Vodafone weight 400" },
+      { "family": "VodafoneRegularBold", "mapsTo": "Vodafone weight 700" }
+    ],
+    "fontWeights": {
+      "light": "300",
+      "regular": "400",
+      "bold": "700",
+      "extraBold": "800",
+      "cssVars": {
+        "--re-font-weight-light": "300",
+        "--re-font-weight-regular": "400",
+        "--re-font-weight-bold": "700"
+      }
+    }
+  },
+
+  "colors": {
+    "primary": {
+      "vodafoneRed": { "hex": "#e60000", "rgb": "rgb(230, 0, 0)", "cssVar": "--re-color-primary-1", "usage": "Brand primary, CTA buttons, accent links" },
+      "white": { "hex": "#ffffff", "rgb": "rgb(255, 255, 255)", "cssVar": "--re-color-primary-2", "usage": "Primary background, button text on red" },
+      "darkGrey": { "hex": "#4a4d4e", "rgb": "rgb(74, 77, 78)", "cssVar": "--re-color-primary-3", "usage": "Secondary text color" },
+      "charcoal": { "hex": "#25282b", "rgb": "rgb(37, 40, 43)", "cssVar": "--re-color-primary-4", "usage": "Dark text alternate" }
+    },
+    "primaryInteractive": {
+      "redHover": { "hex": "#c30000", "rgb": "rgb(195, 0, 0)", "cssVar": "--re-color-primary-1-hover" },
+      "redActive": { "hex": "#a10000", "rgb": "rgb(161, 0, 0)", "cssVar": "--re-color-primary-1-active" },
+      "redDisabled": { "value": "rgba(230, 0, 0, 0.38)", "cssVar": "--re-color-primary-1-disabled" },
+      "inverseBlack": { "hex": "#0d0d0d", "rgb": "rgb(13, 13, 13)", "cssVar": "--re-color-primary-2-inverse", "usage": "Primary text color on white backgrounds" }
+    },
+    "secondary": {
+      "teal": { "hex": "#00697c", "rgb": "rgb(0, 105, 124)", "cssVar": "--re-color-secondary-1", "usage": "Secondary brand, links in content" },
+      "aubergine": { "hex": "#5e2750", "rgb": "rgb(94, 39, 80)", "cssVar": "--re-color-secondary-2" },
+      "orange": { "hex": "#eb6100", "rgb": "rgb(235, 97, 0)", "cssVar": "--re-color-secondary-3" },
+      "lemonYellow": { "hex": "#fecb00", "rgb": "rgb(254, 203, 0)", "cssVar": "--re-color-secondary-4" },
+      "green": { "hex": "#008a00", "rgb": "rgb(0, 138, 0)", "cssVar": "--re-color-secondary-5" },
+      "redViolet": { "hex": "#9c2aa0", "rgb": "rgb(156, 42, 160)", "cssVar": "--re-color-secondary-6" },
+      "darkRed": { "hex": "#bd0000", "rgb": "rgb(189, 0, 0)", "cssVar": "--re-color-secondary-7" },
+      "tealHover": { "hex": "#005969", "rgb": "rgb(0, 89, 105)", "cssVar": "--re-color-secondary-1-hover" }
+    },
+    "monochrome": {
+      "white": { "hex": "#ffffff", "cssVar": "--re-color-monochrome-1", "usage": "White background" },
+      "lightGrey": { "hex": "#f2f2f2", "cssVar": "--re-color-monochrome-2", "usage": "Alternate section background" },
+      "silver": { "hex": "#bebebe", "cssVar": "--re-color-monochrome-3", "usage": "Borders, dividers" },
+      "midGrey": { "hex": "#7e7e7e", "cssVar": "--re-color-monochrome-4", "usage": "Disabled text, placeholders" },
+      "darkGrey": { "hex": "#262626", "cssVar": "--re-color-monochrome-5", "usage": "Footer background, dark sections" },
+      "nearBlack": { "hex": "#0d0d0d", "cssVar": "--re-color-monochrome-6", "usage": "Primary text, dark section backgrounds" },
+      "nearBlackHover": { "hex": "#313131", "cssVar": "--re-color-monochrome-6-hover" },
+      "nearBlackActive": { "hex": "#565656", "cssVar": "--re-color-monochrome-6-active" },
+      "nearBlackDisabled": { "hex": "#878787", "cssVar": "--re-color-monochrome-6-disabled" }
+    },
+    "state": {
+      "error": { "hex": "#bd0000", "cssVar": "--re-color-state-error" },
+      "warning": { "hex": "#eb6100", "cssVar": "--re-color-state-warn" },
+      "success": { "hex": "#008a00", "cssVar": "--re-color-state-success" },
+      "info": { "hex": "#005ea5", "cssVar": "--re-color-state-info" },
+      "focus": { "hex": "#0096ad", "cssVar": "--re-color-state-focus" },
+      "incomplete": { "hex": "#bebebe", "cssVar": "--re-color-state-incomplete" }
+    },
+    "textColors": {
+      "primary": { "value": "rgb(13, 13, 13)", "hex": "#0d0d0d", "usage": "Main body text, headings on light backgrounds" },
+      "secondary": { "value": "rgb(38, 38, 38)", "hex": "#262626", "usage": "Secondary text, navigation links" },
+      "tertiary": { "value": "rgb(51, 51, 51)", "hex": "#333333", "usage": "Navigation, header links" },
+      "muted": { "value": "rgb(102, 102, 102)", "hex": "#666666", "usage": "Muted/inactive navigation items" },
+      "onDark": { "value": "rgb(255, 255, 255)", "hex": "#ffffff", "usage": "Text on dark/red backgrounds" },
+      "onLightGrey": { "value": "rgb(242, 242, 242)", "hex": "#f2f2f2", "usage": "Text on dark backgrounds (muted)" },
+      "accent": { "value": "rgb(230, 0, 0)", "hex": "#e60000", "usage": "Accent links, CTAs" },
+      "link": { "value": "rgb(0, 105, 124)", "hex": "#00697c", "usage": "Teal links in content" }
+    },
+    "backgroundColors": {
+      "white": { "value": "rgb(255, 255, 255)", "hex": "#ffffff", "usage": "Default page/card background" },
+      "lightGrey": { "value": "rgb(242, 242, 242)", "hex": "#f2f2f2", "usage": "Alternate section background" },
+      "nearBlack": { "value": "rgb(13, 13, 13)", "hex": "#0d0d0d", "usage": "Dark sections (e.g. TV section)" },
+      "black": { "value": "rgb(0, 0, 0)", "hex": "#000000", "usage": "Overlay backgrounds" },
+      "overlay": { "value": "rgba(0, 0, 0, 0.8)", "usage": "Modal/cookie overlay" },
+      "silverTranslucent": { "value": "rgba(190, 190, 190, 0.4)", "usage": "Subtle overlays" }
+    }
+  },
+
+  "typography": {
+    "body": {
+      "fontFamily": "vodafone, Helvetica, Arial, sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "lineHeight": "26px",
+      "color": "rgb(13, 13, 13)",
+      "letterSpacing": "normal"
+    },
+    "headings": {
+      "h1": {
+        "desktop": { "fontSize": "64px", "lineHeight": "72px", "fontWeight": "700", "marginBottom": "16px", "cssVar": "--re-typography-font-heading-5 = 4rem" },
+        "mobile": { "fontSize": "56px", "lineHeight": "64px", "fontWeight": "700", "marginBottom": "16px" },
+        "fontFamily": "vodafone, Helvetica, Arial, sans-serif",
+        "color": "rgb(13, 13, 13)"
+      },
+      "h2": {
+        "desktop": { "fontSize": "40px", "lineHeight": "48px", "cssVar": "--re-typography-font-heading-3 = 2.5rem" },
+        "mobile": { "fontSize": "32px", "lineHeight": "40px" },
+        "fontFamily": "vodafone, Helvetica, Arial, sans-serif",
+        "fontWeight": "300 (light) or 400 (regular)",
+        "color": "rgb(13, 13, 13)",
+        "note": "h2 with class ws10-u-heading--3 uses weight 400; default section title h2 uses weight 300"
+      },
+      "h3": {
+        "desktop": { "fontSize": "28px", "lineHeight": "32px", "cssVar": "--re-typography-font-heading-2 = 1.75rem" },
+        "fontFamily": "vodafone, Helvetica, Arial, sans-serif"
+      },
+      "h4": {
+        "desktop": { "fontSize": "20px", "lineHeight": "28px", "cssVar": "--re-typography-font-heading-1 = 1.25rem" },
+        "fontFamily": "vodafone, Helvetica, Arial, sans-serif"
+      },
+      "headingScale_cssVars": {
+        "--re-typography-font-heading-1": "1.25rem (20px)",
+        "--re-typography-font-heading-2": "1.75rem (28px)",
+        "--re-typography-font-heading-3": "2.5rem (40px)",
+        "--re-typography-font-heading-4": "3.5rem (56px)",
+        "--re-typography-font-heading-5": "4rem (64px)",
+        "--re-typography-line-height-heading-1": "1.75rem (28px)",
+        "--re-typography-line-height-heading-2": "2rem (32px)",
+        "--re-typography-line-height-heading-3": "3rem (48px)",
+        "--re-typography-line-height-heading-4": "4rem (64px)",
+        "--re-typography-line-height-heading-5": "4.5rem (72px)"
+      }
+    },
+    "paragraph": {
+      "default": { "fontSize": "18px", "lineHeight": "26px", "fontWeight": "400", "color": "rgb(13, 13, 13)" },
+      "cardTitle": { "fontSize": "38px", "lineHeight": "47.88px", "fontWeight": "700", "note": "Large card titles, e.g. discovery cards" },
+      "sectionTitle": { "fontSize": "20px", "lineHeight": "28px", "fontWeight": "400", "note": "Banner slim titles" },
+      "footnote": { "fontSize": "14px", "lineHeight": "18px", "fontWeight": "400", "note": "Small text, labels, footnotes" },
+      "moduleTitle": { "fontSize": "24px", "lineHeight": "32px", "fontWeight": "400", "note": "Module HiFi titles" }
+    },
+    "links": {
+      "default": { "color": "rgb(13, 13, 13)", "textDecoration": "none", "note": "Most inline links" },
+      "accent": { "color": "rgb(230, 0, 0)", "textDecoration": "underline", "note": "CTA/highlighted links with ws10-u-color--primary class" },
+      "navigation": { "color": "rgb(51, 51, 51)", "textDecoration": "none", "fontSize": "16px", "fontWeight": "400" },
+      "navMain": { "color": "rgb(102, 102, 102)", "textDecoration": "none", "fontSize": "24px", "fontWeight": "300", "lineHeight": "30px", "note": "Main nav top-level items" },
+      "footer": { "color": "rgb(255, 255, 255)", "textDecoration": "none", "note": "Footer links on dark background" },
+      "headerPhone": { "color": "rgb(255, 255, 255)", "textDecoration": "underline", "fontSize": "14px" }
+    }
+  },
+
+  "buttons": {
+    "shared": {
+      "fontFamily": "vodafone, Helvetica, Arial, sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "lineHeight": "26px",
+      "borderRadius": "100px",
+      "padding": "8px 28px",
+      "minWidth": "152px",
+      "cursor": "pointer",
+      "textTransform": "none",
+      "textDecoration": "none",
+      "borderWidth": "2px",
+      "display": "block"
+    },
+    "primary": {
+      "selector": ".ws10-c-button--primary",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgb(230, 0, 0)",
+      "border": "2px solid rgb(230, 0, 0)",
+      "hoverBackground": "#c30000 (--re-color-primary-1-hover)",
+      "activeBackground": "#a10000 (--re-color-primary-1-active)",
+      "note": "Vodafone red CTA button with white text, pill shape"
+    },
+    "secondary": {
+      "selector": ".ws10-c-button--secondary",
+      "variants": [
+        {
+          "context": "On dark/image backgrounds",
+          "color": "rgb(38, 38, 38)",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "border": "2px solid rgb(255, 255, 255)",
+          "note": "White button with dark text"
+        },
+        {
+          "context": "On light backgrounds (inverse)",
+          "color": "rgb(242, 242, 242)",
+          "backgroundColor": "rgb(13, 13, 13)",
+          "border": "2px solid rgb(13, 13, 13)",
+          "note": "Dark button with light text"
+        }
+      ]
+    },
+    "tertiary": {
+      "selector": ".ws10-c-button--tertiary",
+      "variants": [
+        {
+          "context": "On dark/image backgrounds",
+          "color": "rgb(255, 255, 255)",
+          "backgroundColor": "transparent",
+          "border": "2px solid rgb(255, 255, 255)",
+          "note": "Ghost/outline button, white border on dark"
+        },
+        {
+          "context": "On light backgrounds",
+          "color": "rgb(13, 13, 13)",
+          "backgroundColor": "transparent",
+          "border": "2px solid rgb(13, 13, 13)",
+          "note": "Ghost/outline button, dark border on light"
+        }
+      ]
+    }
+  },
+
+  "spacing": {
+    "scale": {
+      "0": "0px",
+      "1": "4px (0.25rem)",
+      "2": "8px (0.5rem)",
+      "3": "12px (note: not from CSS var, likely 0.75rem)",
+      "4": "16px (--re-spacing-3 = 1rem)",
+      "5": "20px (--re-spacing-4 = 1.25rem)",
+      "6": "24px (--re-spacing-5 = 1.5rem)",
+      "7": "28px (via ws10-u--pb6, ~1.75rem)",
+      "8": "32px (--re-spacing-6 = 2rem)",
+      "9": "36px (not seen)",
+      "10": "40px (--re-spacing-7 = 2.5rem)",
+      "12": "48px (--re-spacing-8 = 3rem)",
+      "14": "56px (--re-spacing-9 = 3.5rem)",
+      "16": "64px (--re-spacing-10 = 4rem)"
+    },
+    "cssVarScale": {
+      "--re-spacing-1": "0.25rem (4px)",
+      "--re-spacing-2": "0.5rem (8px)",
+      "--re-spacing-3": "1rem (16px)",
+      "--re-spacing-4": "1.25rem (20px)",
+      "--re-spacing-5": "1.5rem (24px)",
+      "--re-spacing-6": "2rem (32px)",
+      "--re-spacing-7": "2.5rem (40px)",
+      "--re-spacing-8": "3rem (48px)",
+      "--re-spacing-9": "3.5rem (56px)",
+      "--re-spacing-10": "4rem (64px)",
+      "--re-spacing-11": "4.5rem (72px)",
+      "--re-spacing-12": "5rem (80px)"
+    },
+    "commonPatterns": {
+      "cardContentPadding": "20px",
+      "cardBottomPadding": "20px",
+      "bannerSlimPadding": "16px vertical",
+      "sectionHeaderPadding": "40px vertical",
+      "moduleTopPadding": "32px",
+      "cardAddonsPadding": "24px vertical",
+      "gridGutter": "18px",
+      "wrapperHorizontalPadding": "22.5px",
+      "carouselVerticalPadding": "16px top, 32px bottom"
+    }
+  },
+
+  "layout": {
+    "container": {
+      "maxWidth": "1440px",
+      "selector": ".ws10-o-wrapper",
+      "horizontalPadding": "22.5px",
+      "effectiveContentWidth": "1395px (1440 - 2 * 22.5)"
+    },
+    "grid": {
+      "system": "WS10 flexbox grid",
+      "gutter": "18px",
+      "containerSelector": ".ws10-o-layout",
+      "itemSelector": ".ws10-o-layout__item",
+      "columns": "Fractional units: ws10-u--1/1, ws10-u--1/2, ws10-u--1/3, ws10-u--1/4",
+      "responsiveModifiers": {
+        "tablet": "@tablet suffix (e.g. ws10-u--1/2@tablet)",
+        "desktop": "@desktop suffix (e.g. ws10-u--1/4@desktop)"
+      }
+    },
+    "breakpoints": {
+      "primary": {
+        "mobile": "0 - 599px",
+        "tablet": "600px - 1023px",
+        "desktop": "1024px+"
+      },
+      "allDetected": [
+        "360px", "425px", "600px", "768px", "960px", "1024px", "1270px"
+      ],
+      "notes": "Primary breakpoints at 600px (tablet) and 1024px (desktop). Additional component-specific breakpoints at 768px, 960px, and 1270px."
+    }
+  },
+
+  "borderRadius": {
+    "scale": {
+      "--re-border-radius-1": "0.187rem (3px)",
+      "--re-border-radius-2": "0.375rem (6px)",
+      "--re-border-radius-3": "0.5rem (8px)"
+    },
+    "button": "100px (pill shape)",
+    "cards": "6px-8px (typical)",
+    "note": "Buttons use full pill/capsule shape (100px). Cards and containers use subtle rounding."
+  },
+
+  "screenshot": "/tmp/playwright/vodafone-es-full-page.png"
+}

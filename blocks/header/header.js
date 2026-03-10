@@ -124,7 +124,7 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['brand', 'sections', 'tools'];
+  const classes = ['topbar', 'brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
@@ -135,6 +135,30 @@ export default async function decorate(block) {
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
+  }
+
+  // decorate topbar - strip button styling from links
+  const navTopbar = nav.querySelector('.nav-topbar');
+  if (navTopbar) {
+    navTopbar.querySelectorAll('a').forEach((a) => {
+      a.classList.remove('button');
+      const container = a.closest('.button-container');
+      if (container) container.classList.remove('button-container');
+    });
+  }
+
+  // decorate tools - strip default button styling, mark CTA
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    navTools.querySelectorAll('a').forEach((a) => {
+      const isCta = a.querySelector('strong');
+      a.classList.remove('button', 'primary', 'secondary');
+      const container = a.closest('.button-container');
+      if (container) container.classList.remove('button-container');
+      if (isCta) {
+        a.classList.add('nav-cta');
+      }
+    });
   }
 
   const navSections = nav.querySelector('.nav-sections');
@@ -166,6 +190,10 @@ export default async function decorate(block) {
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+  // move topbar out of nav, into wrapper (before nav) for full-width dark background
+  if (navTopbar) {
+    navWrapper.append(navTopbar);
+  }
   navWrapper.append(nav);
   block.append(navWrapper);
 }

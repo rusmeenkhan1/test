@@ -1,20 +1,92 @@
+/* Vodafone footer - dark background with social links and legal */
 footer {
-  background-color: var(--light-color);
+  background-color: #000;
+  color: var(--color-white);
   font-size: var(--body-font-size-xs);
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: var(--section-max-width);
 }
 
+/* All paragraphs - base styles */
 footer .footer p {
+  margin: 4px 0;
+}
+
+footer .footer a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+/* Social links row (first section) */
+footer .footer .section:first-child {
+  border-bottom: 1px solid #333;
+}
+
+footer .footer .section:first-child .default-content-wrapper {
+  padding: 24px 22.5px;
+}
+
+footer .footer .section:first-child p {
+  margin: 0;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0;
+}
+
+footer .footer .section:first-child a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: var(--body-font-size-xs);
+  transition: opacity 0.2s;
+}
+
+footer .footer .section:first-child a:hover {
+  opacity: 0.7;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+/* Legal links row (last section) */
+footer .footer .section:last-child .default-content-wrapper {
+  padding: 16px 22.5px;
+  border-top: 1px solid #333;
+}
+
+footer .footer .section:last-child p {
   margin: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
-  }
+footer .footer .section:last-child p:first-child {
+  display: flex;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+  font-size: 0;
+}
+
+footer .footer .section:last-child p:first-child a {
+  color: #999;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+footer .footer .section:last-child p:first-child a:hover {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+/* Copyright text */
+footer .footer .section:last-child p:last-child {
+  color: #999;
+  font-size: 12px;
+  margin-top: 12px;
 }

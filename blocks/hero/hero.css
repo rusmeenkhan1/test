@@ -1,27 +1,71 @@
+/* CTA Banner style - horizontal layout matching Vodafone "Configura tu tarifa" banner */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
+.hero-container {
+  border-bottom: 1px solid var(--color-light-grey);
+}
+
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 20px 16px;
+  min-height: auto;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+.hero > div {
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
+.hero h1,
+.hero h2,
+.hero h3 {
+  color: var(--text-color);
+  font-weight: 700;
+  margin: 0;
+  font-size: var(--body-font-size-m);
+}
+
+.hero p {
+  color: var(--color-grey);
+  font-size: var(--body-font-size-s);
+  margin: 0;
+}
+
+.hero a.button:any-link {
+  background-color: transparent;
+  border: 2px solid var(--color-black);
+  color: var(--color-black);
+  font-weight: 400;
+  font-size: var(--body-font-size-s);
+  padding: 8px 24px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.hero a.button:hover {
+  background-color: var(--color-light-grey);
+  border-color: var(--color-black);
+  color: var(--color-black);
+}
+
+/* Hero with background image variant */
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
 }
 
 .hero img {
@@ -30,8 +74,32 @@
   height: 100%;
 }
 
+.hero picture + div {
+  position: relative;
+  z-index: 1;
+}
+
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 20px 22.5px;
+  }
+
+  .hero > div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .hero h2 {
+    flex-shrink: 0;
+  }
+
+  .hero p {
+    flex: 1;
+  }
+
+  .hero a.button:any-link {
+    flex-shrink: 0;
   }
 }

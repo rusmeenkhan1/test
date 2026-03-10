@@ -1,19 +1,33 @@
+/* Pricing cards - Vodafone plan card layout */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
   background-color: var(--background-color);
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Highlighted card (last card with "La más vendida" badge) */
+.cards > ul > li:last-child {
+  border: 2px solid var(--color-red);
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .cards .cards-card-image {
@@ -24,4 +38,109 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+/* Discount/promo badges */
+.cards .cards-card-body em {
+  display: inline-block;
+  font-style: normal;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+}
+
+/* Teal badges (-30%, -29%) */
+.cards .cards-card-body em:first-child {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 4px;
+}
+
+/* "La más vendida" or "Tarifa exclusiva web" labels */
+.cards .cards-card-body > p:first-child em {
+  background-color: transparent;
+  color: var(--color-red);
+  padding: 0;
+  font-weight: 700;
+}
+
+/* Price styling */
+.cards .cards-card-body > p > strong {
+  font-size: 40px;
+  font-weight: 800;
+  display: block;
+  margin: 4px 0;
+  line-height: 1.1;
+}
+
+/* Sub-price text (e.g., "3 meses, luego 56€") */
+.cards .cards-card-body > p:nth-child(3) {
+  color: var(--color-grey);
+  font-size: var(--body-font-size-xs);
+  margin: 0;
+}
+
+/* Feature lists */
+.cards .cards-card-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  font-size: var(--body-font-size-s);
+  flex: 1;
+}
+
+.cards .cards-card-body ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-light-grey);
+  line-height: 1.4;
+}
+
+.cards .cards-card-body ul li:last-child {
+  border-bottom: none;
+}
+
+/* CTA links in cards */
+.cards .cards-card-body a.button:any-link {
+  font-size: var(--body-font-size-s);
+  padding: 8px 20px;
+  margin: 4px 0;
+  display: inline-block;
+}
+
+/* First link = "Más info" (secondary) */
+.cards .cards-card-body > p:nth-last-child(2) a.button:any-link {
+  background-color: transparent;
+  border: 2px solid var(--color-black);
+  color: var(--color-black);
+}
+
+.cards .cards-card-body > p:nth-last-child(2) a.button:hover {
+  background-color: var(--color-light-grey);
+}
+
+/* Second link = "Lo quiero" (primary) */
+.cards .cards-card-body > p:last-child a.button:any-link {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+  color: var(--color-white);
+}
+
+/* Small description text */
+/* stylelint-disable-next-line no-descending-specificity */
+.cards .cards-card-body > p {
+  margin: 4px 0;
+  font-size: var(--body-font-size-s);
+}
+
+@media (width >= 600px) {
+  .cards > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .cards > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
