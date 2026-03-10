@@ -108,28 +108,28 @@
    Detect via columns that contain "Plan Amigo" content
    ========================================================= */
 
-.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) {
+.section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) {
   background-color: var(--color-red);
   border-radius: 16px;
   overflow: hidden;
   color: var(--color-white);
 }
 
-.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) > div > div:not(.columns-img-col) {
+.section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) > div > div:not(.columns-img-col) {
   padding: 32px 24px;
 }
 
-.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) p {
+.section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) p {
   color: var(--color-white);
   margin: 8px 0;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
-.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) strong {
+.section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) strong {
   color: var(--color-white);
 }
 
-.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) a.button:any-link {
+.section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) a.button:any-link {
   background-color: transparent;
   border: 2px solid var(--color-white);
   color: var(--color-white);
@@ -138,12 +138,12 @@
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
-.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) a.button:hover {
+.section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) a.button:hover {
   background-color: var(--color-white);
   color: var(--color-red);
 }
 
-.section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) > div > .columns-img-col img {
+.section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) > div > .columns-img-col img {
   border-radius: 0;
 }
 
@@ -173,7 +173,7 @@
     padding: 40px 32px;
   }
 
-  .section.light-grey .columns:not(.columns-2-cols, .columns-3-cols) > div > div:not(.columns-img-col) {
+  .section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) > div > div:not(.columns-img-col) {
     padding: 48px 32px;
   }
 }

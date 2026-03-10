@@ -1,8 +1,19 @@
-.carousel-container .carousel-wrapper {
-  max-width: unset;
+/* =========================================================
+   Carousel – Vodafone hero banner style
+   ========================================================= */
+
+/* Contained layout with side padding like original */
+.carousel-container {
   padding: 0;
 }
 
+.carousel-container .carousel-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px 22.5px 0;
+}
+
+/* Slides container – position context for arrows */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -19,6 +30,7 @@
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   overflow: scroll clip;
+  border-radius: 16px;
 }
 
 .carousel .carousel-slides::-webkit-scrollbar {
@@ -34,7 +46,7 @@
   justify-content: center;
   position: relative;
   width: 100%;
-  min-height: 400px;
+  min-height: 360px;
   background-color: var(--color-light-grey);
 }
 
@@ -52,8 +64,8 @@
 /* Slide content - positioned on the left over the image */
 .carousel .carousel-slide .carousel-slide-content {
   z-index: 1;
-  margin: 24px;
-  padding: 24px;
+  margin: 20px;
+  padding: 20px;
   color: var(--color-white);
   position: relative;
   width: var(--slide-content-width, 90%);
@@ -68,7 +80,7 @@
 }
 
 .carousel .carousel-slide .carousel-slide-content p {
-  margin: 8px 0;
+  margin: 6px 0;
   font-size: var(--body-font-size-s);
   color: var(--color-white);
 }
@@ -110,7 +122,15 @@
   text-decoration: none;
   font-size: var(--body-font-size-m);
   padding: 8px 32px;
-  margin: 4px 8px 4px 0;
+  min-width: 152px;
+  text-align: center;
+}
+
+/* Button row – side-by-side layout like original */
+.carousel .carousel-slide .carousel-slide-content p:nth-last-child(2),
+.carousel .carousel-slide .carousel-slide-content p:last-child {
+  display: inline-block;
+  margin: 4px 4px 4px 0;
 }
 
 /* First button (Más info) - outline/tertiary style */
@@ -137,18 +157,17 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px 12px;
-  padding: 20px 16px;
-  background-color: var(--color-white);
+  padding: 16px;
   line-height: 0;
 }
 
 .carousel .carousel-slide-indicator button {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   margin: 0;
   padding: 0;
   border-radius: 50%;
-  background-color: #dadada;
+  background-color: #bebebe;
   border: none;
   transition: background-color 0.2s;
 }
@@ -159,35 +178,40 @@
   background-color: var(--color-red);
 }
 
-/* Navigation arrows */
+/* Navigation arrows – outside the carousel like the original */
 .carousel .carousel-navigation-buttons {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 12px;
-  right: 12px;
+  left: -22px;
+  right: -22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   margin: 0;
   border-radius: 50%;
   padding: 0;
-  background-color: rgb(255 255 255 / 80%);
-  border: none;
-  transition: background-color 0.2s;
+  background-color: var(--color-white);
+  border: 1px solid #e0e0e0;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .carousel .carousel-navigation-buttons button:hover,
 .carousel .carousel-navigation-buttons button:focus-visible {
   background-color: var(--color-white);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
 }
 
 .carousel .carousel-navigation-buttons button::after {
@@ -214,16 +238,11 @@
     min-height: 420px;
   }
 
-  .carousel .carousel-navigation-buttons {
-    left: 24px;
-    right: 24px;
-  }
-
   .carousel .carousel-slide .carousel-slide-content {
-    --slide-content-width: 45%;
+    --slide-content-width: 48%;
 
-    margin: 48px;
-    padding: 32px;
+    margin: 40px 48px;
+    padding: 24px;
   }
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
@@ -231,10 +250,15 @@
   }
 
   .carousel .carousel-slide .carousel-slide-content strong {
-    font-size: 56px;
+    font-size: 64px;
   }
 
   .carousel .carousel-slide .carousel-slide-content h2 {
     font-size: var(--heading-font-size-xl);
+  }
+
+  .carousel .carousel-navigation-buttons {
+    left: -22px;
+    right: -22px;
   }
 }

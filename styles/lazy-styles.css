@@ -13,33 +13,43 @@
 /* =====================================================
    PRODUCT CATEGORY CARDS (table-based card grid)
    - Section with ul > li > table structure
+   - Matches original: large rectangular cards with images
    ===================================================== */
 main .section > div > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 12px;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+}
+
+main .section > div > ul::-webkit-scrollbar {
+  display: none;
 }
 
 main .section > div > ul > li {
-  min-width: 0;
+  flex: 0 0 200px;
+  scroll-snap-align: start;
 }
 
 main .section > div > ul > li > table {
   width: 100%;
   border-collapse: collapse;
-  background-color: var(--background-color);
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  background-color: var(--color-white, #fff);
+  border-radius: 24px;
   overflow: hidden;
   text-align: center;
   transition: box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
 main .section > div > ul > li > table:hover {
-  box-shadow: 0 4px 16px rgb(0 0 0 / 16%);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
 }
 
 /* Hide "Cards" header row in undecorated card tables */
@@ -48,28 +58,46 @@ main .section > div > ul > li > table tr:first-child:has(td:only-child) {
   display: none;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
+main .section > div > ul > li > table tbody,
+main .section > div > ul > li > table tr {
+  display: flex;
+  flex-direction: column;
+}
+
 main .section > div > ul > li > table td {
-  padding: 12px 8px;
-  vertical-align: middle;
+  display: block;
+  padding: 0;
 }
 
 main .section > div > ul > li > table td img {
-  max-width: 64px;
-  height: auto;
+  width: 160px;
+  height: 180px;
+  object-fit: contain;
   display: block;
   margin: 0 auto;
-  border-radius: 12px;
+}
+
+main .section > div > ul > li > table td strong {
+  display: block;
+  padding: 4px 8px 16px;
 }
 
 main .section > div > ul > li > table td strong a {
   color: var(--text-color);
-  font-size: var(--body-font-size-xs);
+  font-size: var(--body-font-size-s);
   text-decoration: none;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 main .section > div > ul > li > table td strong a:hover {
-  color: var(--link-color);
+  color: var(--color-red);
+}
+
+@media (width >= 900px) {
+  main .section > div > ul > li {
+    flex: 0 0 270px;
+  }
 }
 
 /* =====================================================
@@ -83,10 +111,10 @@ main .section.light-grey > .default-content-wrapper {
 
 /* Plan Amigo banner styling */
 main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) {
-  background-color: var(--color-red);
+  background: linear-gradient(45deg, rgb(130 0 0) 0%, rgb(230 0 0) 100%);
   color: var(--color-white);
-  border-radius: 16px;
-  padding: 32px;
+  border-radius: 24px;
+  padding: 20px;
   overflow: hidden;
   position: relative;
 }
@@ -123,18 +151,20 @@ main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) img 
 
 @media (width >= 900px) {
   main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 24px;
-    padding: 40px;
+    padding: 32px 40px;
+    max-width: 60%;
+  }
+
+  main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) > p:last-child {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) img {
     margin-top: 0;
-    grid-row: 1 / span 4;
-    grid-column: 2;
-    max-height: 280px;
+    max-height: 220px;
     object-fit: contain;
   }
 }

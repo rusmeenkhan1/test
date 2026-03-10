@@ -32,7 +32,15 @@
   padding: 24px;
   flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 0 16px;
+  text-align: left;
+}
+
+/* All children full width by default (column-like) */
+/* stylelint-disable-next-line no-descending-specificity */
+.cards .cards-card-body > * {
+  flex-basis: 100%;
 }
 
 .cards .cards-card-image {
@@ -92,7 +100,8 @@
   padding: 0;
   margin: 16px 0;
   font-size: var(--body-font-size-s);
-  flex: 1;
+  flex-grow: 1;
+  flex-basis: 100%;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -106,12 +115,18 @@
   border-bottom: none;
 }
 
+/* CTA button row – side-by-side layout */
+.cards .cards-card-body > p:nth-last-child(2),
+.cards .cards-card-body > p:last-child {
+  flex-basis: auto;
+  margin: 4px 0;
+}
+
 /* CTA links in cards */
 .cards .cards-card-body a.button:any-link {
-  font-size: var(--body-font-size-s);
-  padding: 8px 24px;
-  margin: 4px 0;
-  display: inline-block;
+  font-size: var(--body-font-size-m);
+  padding: 8px 32px;
+  border-radius: 100px;
 }
 
 /* First link = "Más info" (secondary) */
