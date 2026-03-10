@@ -30,24 +30,33 @@
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   overflow: scroll clip;
-  border-radius: 16px;
+  border-radius: 24px;
 }
 
 .carousel .carousel-slides::-webkit-scrollbar {
   display: none;
 }
 
+/* Slide: two-column grid layout — text LEFT, image RIGHT */
 .carousel .carousel-slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   position: relative;
   width: 100%;
-  min-height: 360px;
-  background-color: var(--color-light-grey);
+  min-height: 340px;
+  background-color: var(--color-white, #fff);
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+/* Image – fills the right column */
+.carousel .carousel-slide .carousel-slide-image {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  position: relative;
+  overflow: hidden;
 }
 
 .carousel .carousel-slide .carousel-slide-image picture {
@@ -61,20 +70,20 @@
   object-fit: cover;
 }
 
-/* Slide content - positioned on the left over the image */
+/* Slide content – left column, dark text on white background */
 .carousel .carousel-slide .carousel-slide-content {
+  grid-column: 1;
+  grid-row: 1 / -1;
   z-index: 1;
-  margin: 20px;
   padding: 20px;
-  color: var(--color-white);
-  position: relative;
-  width: var(--slide-content-width, 90%);
+  color: var(--color-black, #000);
+  align-self: center;
 }
 
 .carousel .carousel-slide .carousel-slide-content h2 {
   font-size: var(--heading-font-size-l);
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--color-black, #000);
   margin-top: 8px;
   line-height: 1.2;
 }
@@ -82,13 +91,13 @@
 .carousel .carousel-slide .carousel-slide-content p {
   margin: 6px 0;
   font-size: var(--body-font-size-s);
-  color: var(--color-white);
+  color: var(--color-black, #000);
 }
 
 /* Discount badge */
 .carousel .carousel-slide .carousel-slide-content em {
   display: inline-block;
-  background-color: var(--color-red);
+  background-color: #007c92;
   color: var(--color-white);
   font-style: normal;
   font-size: var(--body-font-size-xs);
@@ -107,10 +116,9 @@
 
 /* Price description text (e.g., "Precio especial 3 meses, luego 56€") */
 .carousel .carousel-slide .carousel-slide-content p:nth-child(4) {
-  color: var(--color-white);
+  color: var(--color-red, #e60000);
   font-weight: 700;
   font-size: var(--body-font-size-xs);
-  opacity: 0.9;
 }
 
 /* CTA links */
@@ -133,22 +141,22 @@
   margin: 4px 4px 4px 0;
 }
 
-/* First button (Más info) - outline/tertiary style */
+/* First button (Más info) - outline style with dark border */
 .carousel .carousel-slide .carousel-slide-content p:nth-last-child(2) a.button:any-link {
   background-color: transparent;
-  border: 2px solid var(--color-white);
-  color: var(--color-white);
+  border: 2px solid var(--color-black);
+  color: var(--color-black);
 }
 
 .carousel .carousel-slide .carousel-slide-content p:nth-last-child(2) a.button:hover {
-  background-color: rgb(255 255 255 / 15%);
+  background-color: rgb(0 0 0 / 5%);
 }
 
-/* Second button (Lo quiero) - secondary white style */
+/* Second button (Lo quiero) - red CTA style */
 .carousel .carousel-slide .carousel-slide-content p:last-child a.button:any-link {
-  background-color: var(--color-white);
-  border: 2px solid var(--color-white);
-  color: var(--color-black);
+  background-color: var(--color-red, #e60000);
+  border: 2px solid var(--color-red, #e60000);
+  color: var(--color-white);
 }
 
 /* Dot indicators */
@@ -233,20 +241,33 @@
   left: calc(50% - 2px);
 }
 
-@media (width >= 600px) {
+/* Mobile: stack vertically, image on top */
+@media (width < 600px) {
   .carousel .carousel-slide {
-    min-height: 420px;
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .carousel .carousel-slide .carousel-slide-image {
+    grid-column: 1;
+    grid-row: 1;
+    height: 200px;
   }
 
   .carousel .carousel-slide .carousel-slide-content {
-    --slide-content-width: 48%;
-
-    margin: 40px 48px;
-    padding: 24px;
+    grid-column: 1;
+    grid-row: 2;
+    padding: 16px;
   }
 
-  .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
-    --slide-content-width: auto;
+  .carousel .carousel-slide .carousel-slide-content strong {
+    font-size: 36px;
+  }
+}
+
+@media (width >= 600px) {
+  .carousel .carousel-slide .carousel-slide-content {
+    padding: 20px 0 20px 20px;
   }
 
   .carousel .carousel-slide .carousel-slide-content strong {

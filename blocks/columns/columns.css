@@ -34,11 +34,16 @@
 }
 
 .columns.columns-3-cols > div > div {
-  background-color: var(--background-color);
+  background-color: var(--color-light-grey);
   border-radius: 16px;
-  padding: 16px;
+  padding: 16px 20px;
   font-size: var(--body-font-size-s);
   font-weight: 400;
+}
+
+/* Bold text inside benefit pills */
+.columns.columns-3-cols > div > div strong {
+  font-weight: 700;
 }
 
 /* =========================================================
@@ -145,6 +150,15 @@
 
 .section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) > div > .columns-img-col img {
   border-radius: 0;
+}
+
+/* In cards+columns sections, the columns is a benefit strip below cards */
+.section.cards-container.columns-container .columns-wrapper {
+  padding-top: 0;
+}
+
+.section.cards-container.columns-container .columns.columns-3-cols > div > div {
+  background-color: var(--color-light-grey);
 }
 
 @media (width >= 600px) {
