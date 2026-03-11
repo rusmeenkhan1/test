@@ -288,30 +288,11 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
 }
 
-/* mobile accordion: chevron arrows and collapse/expand for nav-drop items */
+/* mobile: nav-drop items - accordion toggle, no chevron arrows (matches original) */
 header nav .nav-sections .nav-drop {
   position: relative;
   cursor: pointer;
   padding: 12px 0;
-  border-bottom: 1px solid var(--color-light-grey);
-}
-
-header nav .nav-sections .nav-drop::after {
-  content: '';
-  display: inline-block;
-  position: absolute;
-  right: 8px;
-  top: 16px;
-  width: 8px;
-  height: 8px;
-  border: 2px solid currentcolor;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-  transition: transform 0.2s ease;
-}
-
-header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-  transform: rotate(-135deg);
 }
 
 /* mobile: hide sub-menus by default, show when expanded */
@@ -321,13 +302,32 @@ header nav .nav-sections .nav-drop > ul {
 
 header nav .nav-sections .nav-drop[aria-expanded='true'] > ul {
   display: block;
-  padding-left: 16px;
+  padding-left: 0;
 }
 
-/* mobile: non-drop items also get consistent spacing */
-header nav .nav-sections .default-content-wrapper > ul > li:not(.nav-drop) {
+/* mobile: consistent spacing for all items */
+header nav .nav-sections .default-content-wrapper > ul > li {
   padding: 12px 0;
-  border-bottom: 1px solid var(--color-light-grey);
+}
+
+/* mobile: right-pointing chevron on submenu links */
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-sections .nav-drop > ul > li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header nav .nav-sections .nav-drop > ul > li a::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--color-grey);
+  border-width: 2px 2px 0 0;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin-left: 8px;
 }
 
 /* tools */
@@ -513,28 +513,12 @@ header nav .nav-tools a.nav-cta .icon img {
   header nav .nav-sections .nav-drop {
     position: relative;
     padding: 0 16px;
-    padding-right: 16px;
     cursor: pointer;
   }
 
+  /* no chevron arrows on desktop nav items (matches original) */
   header nav .nav-sections .nav-drop::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    right: 2px;
-    transform: translateY(-70%) rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentcolor;
-    border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
-  }
-
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: 50%;
-    bottom: unset;
-    transform: translateY(-30%) rotate(315deg);
+    display: none;
   }
 
   header nav .nav-sections ul {
@@ -551,11 +535,32 @@ header nav .nav-tools a.nav-cta .icon img {
     padding: 0 14px;
   }
 
-  /* reset mobile accordion borders and spacing on desktop */
+  /* red text and red bottom border on hovered/active nav item */
+  header nav .nav-sections .default-content-wrapper > ul > li:hover,
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] {
+    color: var(--color-red);
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li::before {
+    content: '';
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li:hover::before,
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true']::before {
+    background-color: var(--color-red);
+  }
+
+  /* reset mobile accordion spacing on desktop */
   /* stylelint-disable-next-line no-descending-specificity */
   header nav .nav-sections .default-content-wrapper > ul > li:not(.nav-drop),
   header nav .nav-sections .default-content-wrapper > ul > li.nav-drop {
-    border-bottom: none;
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -597,9 +602,24 @@ header nav .nav-tools a.nav-cta .icon img {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 8px 16px;
     color: var(--text-color);
+  }
+
+  /* right-pointing chevron on desktop submenu links */
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a::after {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border: 2px solid var(--color-grey);
+    border-width: 2px 2px 0 0;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+    margin-left: 8px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li a:hover {
