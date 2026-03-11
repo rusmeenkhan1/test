@@ -150,7 +150,7 @@ export default async function decorate(block) {
     return span;
   }
 
-  // decorate topbar - strip button styling, add icons and chevrons
+  // decorate topbar - strip button styling, add icons, chevrons and dropdown menus
   const navTopbar = nav.querySelector('.nav-topbar');
   if (navTopbar) {
     navTopbar.querySelectorAll('a').forEach((a) => {
@@ -163,19 +163,62 @@ export default async function decorate(block) {
     topItems.forEach((li) => {
       const text = li.textContent.trim();
       const link = li.querySelector('a');
-      // "Autónomos y Empresas" — add chevron class
+      // "Autónomos y Empresas" — add chevron class and dropdown menu
       if (text.includes('Autónomos')) {
+        // replace the link with plain text so it acts as a dropdown trigger
+        if (link) {
+          const span = document.createElement('span');
+          span.textContent = link.textContent;
+          link.replaceWith(span);
+        }
         li.classList.add('topbar-dropdown');
+        const dropMenu = document.createElement('ul');
+        dropMenu.className = 'topbar-dropdown-menu';
+        dropMenu.innerHTML = `
+          <li><a href="https://www.vodafone.es/c/autonomos/es/">Autónomos y Negocios</a></li>
+          <li><a href="https://www.vodafone.es/c/empresas/es/">Pymes</a></li>
+          <li><a href="https://www.vodafone.es/c/empresas/es/grandes-empresas/">Grandes empresas y AA.PP.</a></li>`;
+        li.append(dropMenu);
+        li.setAttribute('aria-expanded', 'false');
+        li.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const expanded = li.getAttribute('aria-expanded') === 'true';
+          // close all topbar dropdowns first
+          navTopbar.querySelectorAll('.topbar-dropdown[aria-expanded="true"]').forEach((d) => {
+            d.setAttribute('aria-expanded', 'false');
+          });
+          li.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        });
       }
       // "Ayuda" — add help icon
       if (text.includes('Ayuda') && link) {
         link.prepend(createIcon('help'));
       }
-      // "Castellano" — add globe icon and chevron
+      // "Castellano" — add globe icon, chevron and language dropdown
       if (text.includes('Castellano') && !link) {
         li.prepend(createIcon('globe'));
         li.classList.add('topbar-dropdown');
+        const langMenu = document.createElement('ul');
+        langMenu.className = 'topbar-dropdown-menu';
+        langMenu.innerHTML = '<li><a href="#">Català</a></li>';
+        li.append(langMenu);
+        li.setAttribute('aria-expanded', 'false');
+        li.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const expanded = li.getAttribute('aria-expanded') === 'true';
+          navTopbar.querySelectorAll('.topbar-dropdown[aria-expanded="true"]').forEach((d) => {
+            d.setAttribute('aria-expanded', 'false');
+          });
+          li.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        });
       }
+    });
+
+    // close topbar dropdowns when clicking outside
+    document.addEventListener('click', () => {
+      navTopbar.querySelectorAll('.topbar-dropdown[aria-expanded="true"]').forEach((d) => {
+        d.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 
