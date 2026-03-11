@@ -29,21 +29,39 @@
    ========================================================= */
 
 .columns.columns-3-cols > div {
-  gap: 16px;
+  gap: 12px;
   text-align: center;
 }
 
 .columns.columns-3-cols > div > div {
-  background-color: var(--color-light-grey);
-  border-radius: 16px;
-  padding: 16px 20px;
-  font-size: var(--body-font-size-s);
+  background-color: var(--color-white);
+  border: 1px solid #e0e0e0;
+  border-radius: 100px;
+  padding: 12px 20px;
+  font-size: var(--body-font-size-xs);
   font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 /* Bold text inside benefit pills */
 .columns.columns-3-cols > div > div strong {
   font-weight: 700;
+}
+
+/* Right-pointing chevron on each pill */
+.columns.columns-3-cols > div > div::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border: 2px solid var(--color-grey);
+  border-width: 2px 2px 0 0;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin-left: 4px;
 }
 
 /* =========================================================
@@ -82,13 +100,22 @@
   margin-top: 0;
   font-weight: 700;
   color: var(--color-white);
+  font-size: var(--heading-font-size-l);
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
 .columns.columns-2-cols p {
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   line-height: 1.5;
   color: var(--color-white);
+}
+
+/* Price styling in Vodafone TV card */
+/* stylelint-disable-next-line no-descending-specificity */
+.columns.columns-2-cols strong {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .columns.columns-2-cols > div > .columns-img-col img {
@@ -110,23 +137,32 @@
 
 /* =========================================================
    Plan Amigo – red banner (2-col inside light-grey section)
-   Detect via columns that contain "Plan Amigo" content
    ========================================================= */
 
 .section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) {
-  background-color: var(--color-red);
+  background: linear-gradient(135deg, rgb(130 0 0) 0%, rgb(230 0 0) 100%);
   border-radius: 16px;
   overflow: hidden;
   color: var(--color-white);
 }
 
 .section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) > div > div:not(.columns-img-col) {
-  padding: 32px 24px;
+  padding: 24px;
 }
 
 .section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) p {
   color: var(--color-white);
   margin: 8px 0;
+  font-size: var(--body-font-size-s);
+}
+
+/* "PLAN AMIGO" label */
+.section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) > div > div:not(.columns-img-col) > p:first-child {
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -144,8 +180,7 @@
 
 /* stylelint-disable-next-line no-descending-specificity */
 .section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) a.button:hover {
-  background-color: var(--color-white);
-  color: var(--color-red);
+  background-color: rgb(255 255 255 / 20%);
 }
 
 .section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) > div > .columns-img-col img {
@@ -158,7 +193,7 @@
 }
 
 .section.cards-container.columns-container .columns.columns-3-cols > div > div {
-  background-color: var(--color-light-grey);
+  background-color: var(--color-white);
 }
 
 @media (width >= 600px) {
@@ -188,6 +223,6 @@
   }
 
   .section.light-grey .columns:not(.columns-1-cols, .columns-2-cols, .columns-3-cols) > div > div:not(.columns-img-col) {
-    padding: 48px 32px;
+    padding: 40px 32px;
   }
 }

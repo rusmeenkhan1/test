@@ -15,7 +15,7 @@
 /* stylelint-disable-next-line no-descending-specificity */
 .cards > ul > li {
   background-color: var(--background-color);
-  border-radius: 24px;
+  border-radius: 16px;
   border: 1px solid #e0e0e0;
   overflow: hidden;
   display: flex;
@@ -26,6 +26,24 @@
 /* Highlighted card (last card with "La más vendida" badge) */
 .cards > ul > li:last-child {
   border: 2px solid var(--color-red);
+}
+
+/* "La más vendida" badge - position above card */
+.cards > ul > li:last-child .cards-card-body > p:first-child {
+  position: relative;
+}
+
+.cards > ul > li:last-child .cards-card-body > p:first-child em {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  padding: 4px 16px;
+  border-radius: 0 0 8px 8px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: var(--body-font-size-xs);
+  position: absolute;
+  top: -24px;
+  left: 16px;
 }
 
 .cards .cards-card-body {
@@ -54,6 +72,7 @@
 }
 
 /* Discount/promo badges */
+/* stylelint-disable-next-line no-descending-specificity */
 .cards .cards-card-body em {
   display: inline-block;
   font-style: normal;
@@ -62,8 +81,9 @@
 }
 
 /* Teal badges (-30%, -29%) */
+/* stylelint-disable-next-line no-descending-specificity */
 .cards .cards-card-body em:first-child {
-  background-color: var(--color-red);
+  background-color: #007c92;
   color: var(--color-white);
   padding: 4px 12px;
   border-radius: 100px;
@@ -71,6 +91,7 @@
 }
 
 /* "La más vendida" or "Tarifa exclusiva web" labels */
+/* stylelint-disable-next-line no-descending-specificity */
 .cards .cards-card-body > p:first-child em {
   background-color: transparent;
   color: var(--color-red);
@@ -80,7 +101,7 @@
 
 /* Price styling */
 .cards .cards-card-body > p > strong {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 800;
   display: block;
   margin: 4px 0;
@@ -88,6 +109,7 @@
 }
 
 /* Sub-price text (e.g., "3 meses, luego 56€") */
+/* stylelint-disable-next-line no-descending-specificity */
 .cards .cards-card-body > p:nth-child(3) {
   color: var(--color-grey);
   font-size: var(--body-font-size-xs);
@@ -98,7 +120,7 @@
 .cards .cards-card-body ul {
   list-style: none;
   padding: 0;
-  margin: 16px 0;
+  margin: 12px 0;
   font-size: var(--body-font-size-s);
   flex-grow: 1;
   flex-basis: 100%;
@@ -106,9 +128,10 @@
 
 /* stylelint-disable-next-line no-descending-specificity */
 .cards .cards-card-body ul li {
-  padding: 8px 0;
+  padding: 6px 0;
   border-bottom: 1px solid var(--color-light-grey);
   line-height: 1.4;
+  font-size: var(--body-font-size-xs);
 }
 
 .cards .cards-card-body ul li:last-child {
@@ -116,16 +139,18 @@
 }
 
 /* CTA button row – side-by-side layout */
+/* stylelint-disable no-descending-specificity */
 .cards .cards-card-body > p:nth-last-child(2),
 .cards .cards-card-body > p:last-child {
   flex-basis: auto;
   margin: 4px 0;
 }
+/* stylelint-enable no-descending-specificity */
 
 /* CTA links in cards */
 .cards .cards-card-body a.button:any-link {
-  font-size: var(--body-font-size-m);
-  padding: 8px 32px;
+  font-size: var(--body-font-size-s);
+  padding: 8px 24px;
   border-radius: 100px;
 }
 
@@ -151,7 +176,7 @@
 /* stylelint-disable-next-line no-descending-specificity */
 .cards .cards-card-body > p {
   margin: 4px 0;
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
 }
 
 /* =========================================================
@@ -223,34 +248,51 @@
 .section.cards-container:not(.columns-container, .light-grey) .cards > ul > li {
   text-align: center;
   border: 1px solid #e0e0e0;
-  border-radius: 24px;
+  border-radius: 16px;
   background-color: var(--background-color);
 }
 
 .section.cards-container:not(.columns-container, .light-grey) .cards .cards-card-body {
-  padding: 24px;
+  padding: 24px 16px;
   text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 0;
 }
 
 .section.cards-container:not(.columns-container, .light-grey) .cards .cards-card-body > p:first-child strong {
-  font-size: var(--heading-font-size-m);
+  font-size: var(--heading-font-size-s);
   font-weight: 700;
   display: block;
   margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.section.cards-container:not(.columns-container, .light-grey) .cards .cards-card-body > p {
+  font-size: var(--body-font-size-xs);
+  color: var(--color-grey);
+  line-height: 1.5;
 }
 
 .section.cards-container:not(.columns-container, .light-grey) .cards .cards-card-body a.button:any-link {
   background-color: transparent;
   border: 2px solid var(--color-red);
   color: var(--color-red);
-  font-size: var(--body-font-size-s);
-  padding: 8px 24px;
+  font-size: var(--body-font-size-xs);
+  padding: 6px 20px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
 .section.cards-container:not(.columns-container, .light-grey) .cards .cards-card-body a.button:hover {
   background-color: var(--color-red);
   color: var(--color-white);
+}
+
+/* Remove red border from last benefit card (not a pricing card) */
+.section.cards-container:not(.columns-container, .light-grey) .cards > ul > li:last-child {
+  border: 1px solid #e0e0e0;
 }
 
 @media (width >= 600px) {
@@ -260,6 +302,10 @@
 
   .section.light-grey .cards > ul > li {
     flex: 0 0 160px;
+  }
+
+  .section.cards-container:not(.columns-container, .light-grey) .cards > ul {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -275,5 +321,9 @@
   .section.light-grey .cards > ul > li img {
     width: 140px;
     height: 140px;
+  }
+
+  .section.cards-container:not(.columns-container, .light-grey) .cards > ul {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

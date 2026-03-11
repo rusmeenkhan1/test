@@ -13,7 +13,7 @@
 /* =====================================================
    PRODUCT CATEGORY CARDS (table-based card grid)
    - Section with ul > li > table structure
-   - Matches original: large rectangular cards with images
+   - Matches original: circular cards with images in horizontal scroll
    ===================================================== */
 main .section > div > ul {
   list-style: none;
@@ -31,8 +31,13 @@ main .section > div > ul::-webkit-scrollbar {
 }
 
 main .section > div > ul > li {
-  flex: 0 0 200px;
+  flex: 0 0 140px;
   scroll-snap-align: start;
+}
+
+/* First product card - promotional (wider, not circular) */
+main .section.light-grey > .default-content-wrapper > ul > li:first-child {
+  flex: 0 0 200px;
 }
 
 main .section > div > ul > li > table {
@@ -45,7 +50,7 @@ main .section > div > ul > li > table {
   transition: box-shadow 0.2s;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 16px;
 }
 
 main .section > div > ul > li > table:hover {
@@ -72,21 +77,32 @@ main .section > div > ul > li > table td {
 }
 
 main .section > div > ul > li > table td img {
-  width: 160px;
-  height: 180px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
   display: block;
   margin: 0 auto;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  background-color: var(--color-white);
+}
+
+/* First promotional card - rectangular image, no circle */
+main .section.light-grey > .default-content-wrapper > ul > li:first-child > table td img {
+  width: 160px;
+  height: 180px;
+  border-radius: 16px;
+  border: none;
 }
 
 main .section > div > ul > li > table td strong {
   display: block;
-  padding: 4px 8px 16px;
+  padding: 4px 8px 8px;
 }
 
 main .section > div > ul > li > table td strong a {
   color: var(--text-color);
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   text-decoration: none;
   font-weight: 700;
 }
@@ -95,16 +111,35 @@ main .section > div > ul > li > table td strong a:hover {
   color: var(--color-red);
 }
 
+@media (width >= 600px) {
+  main .section.light-grey > .default-content-wrapper > ul > li:first-child {
+    flex: 0 0 220px;
+  }
+}
+
 @media (width >= 900px) {
   main .section > div > ul > li {
-    flex: 0 0 270px;
+    flex: 0 0 180px;
+  }
+
+  main .section.light-grey > .default-content-wrapper > ul > li:first-child {
+    flex: 0 0 260px;
+  }
+
+  main .section > div > ul > li > table td img {
+    width: 140px;
+    height: 140px;
+  }
+
+  main .section.light-grey > .default-content-wrapper > ul > li:first-child > table td img {
+    width: 200px;
+    height: 220px;
   }
 }
 
 /* =====================================================
-   PLAN AMIGO SECTION
+   PLAN AMIGO SECTION (default content above columns)
    - Red banner with text left, image right
-   - Identified by "Plan Amigo" text + image content
    ===================================================== */
 main .section.light-grey > .default-content-wrapper {
   margin-bottom: 16px;
@@ -112,17 +147,18 @@ main .section.light-grey > .default-content-wrapper {
 
 /* Plan Amigo banner styling */
 main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) {
-  background: linear-gradient(45deg, rgb(130 0 0) 0%, rgb(230 0 0) 100%);
+  background: linear-gradient(135deg, rgb(130 0 0) 0%, rgb(230 0 0) 100%);
   color: var(--color-white);
-  border-radius: 24px;
-  padding: 20px;
+  border-radius: 16px;
+  padding: 24px;
   overflow: hidden;
   position: relative;
 }
 
 main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) p {
   color: var(--color-white);
-  margin: 8px 0;
+  margin: 6px 0;
+  font-size: var(--body-font-size-s);
 }
 
 main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) p:first-child {
@@ -145,6 +181,7 @@ main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) a.bu
   background-color: rgb(255 255 255 / 20%);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 main .section.light-grey > .default-content-wrapper:has(+ .columns-wrapper) img {
   border-radius: 8px;
   margin-top: 16px;
@@ -183,6 +220,7 @@ main .section.light-grey .columns.columns-1-cols {
    BENEFITS SECTION (cards with icons)
    - "Lo mejor de ser de Vodafone" cards
    ===================================================== */
+/* stylelint-disable-next-line no-descending-specificity */
 main .section > .cards-wrapper .cards > ul > li {
   border: 1px solid #e0e0e0;
   border-radius: 16px;
@@ -219,7 +257,7 @@ main .section:not(.light-grey) > .default-content-wrapper > ul > li > table {
   width: 100%;
   border-collapse: collapse;
   background-color: var(--background-color);
-  border-radius: 24px;
+  border-radius: 16px;
   border: 1px solid #e0e0e0;
   overflow: hidden;
   padding: 24px;
@@ -241,14 +279,42 @@ main .section:not(.light-grey) > .default-content-wrapper > ul > li > table tr:f
 
 main .section:not(.light-grey) > .default-content-wrapper + ul > li > table td,
 main .section:not(.light-grey) > .default-content-wrapper > ul > li > table td {
-  padding: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 80px;
 }
 
 main .section:not(.light-grey) > .default-content-wrapper + ul > li > table td strong,
 main .section:not(.light-grey) > .default-content-wrapper > ul > li > table td strong {
-  font-size: var(--body-font-size-m);
+  font-size: var(--heading-font-size-s);
   font-weight: 700;
   display: block;
+  color: var(--text-color);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section:not(.light-grey) > .default-content-wrapper + ul > li > table tbody,
+main .section:not(.light-grey) > .default-content-wrapper > ul > li > table tbody {
+  display: flex;
+  flex-direction: column;
+}
+
+/* stylelint-disable no-descending-specificity */
+main .section:not(.light-grey) > .default-content-wrapper + ul > li > table tr,
+main .section:not(.light-grey) > .default-content-wrapper > ul > li > table tr {
+  display: flex;
+  flex-direction: column;
+}
+/* stylelint-enable no-descending-specificity */
+
+@media (width >= 600px) {
+  main .section:not(.light-grey) > .default-content-wrapper + ul,
+  main .section:not(.light-grey) > .default-content-wrapper > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (width >= 900px) {

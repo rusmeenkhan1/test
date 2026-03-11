@@ -32,16 +32,20 @@ footer .footer .section:first-child {
 
 footer .footer .section:first-child .default-content-wrapper {
   padding: 24px 22.5px;
+  font-size: 0;
+  color: transparent;
 }
 
 footer .footer .section:first-child p {
   margin: 0;
   display: flex;
-  gap: 16px;
+  gap: 20px;
   flex-wrap: wrap;
   align-items: center;
   font-size: 0;
 }
+
+/* Hide "|" separators between social links – merged into selector above */
 
 footer .footer .section:first-child a {
   color: var(--color-white);
