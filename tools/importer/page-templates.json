@@ -155,6 +155,293 @@
           ]
         }
       ]
+    },
+    {
+      "name": "fibra-optica-product",
+      "urls": [
+        "https://www.vodafone.es/c/particulares/es/productos-y-servicios/fibra-optica-adsl/"
+      ],
+      "description": "Vodafone Spain fiber optic and ADSL broadband product page with pricing plans, speed options, and service configurations.",
+      "blocks": [
+        {
+          "name": "cards",
+          "instances": [
+            ".ws10-m-card-rate-simple",
+            ".ws10-c-card-addons"
+          ]
+        },
+        {
+          "name": "columns",
+          "instances": [
+            ".ws10-c-rates-icon-set"
+          ]
+        },
+        {
+          "name": "carousel",
+          "instances": [
+            ".ws10-c-card[class*='bg-gradient']"
+          ]
+        },
+        {
+          "name": "hero",
+          "instances": [
+            ".ws10-c-banner-slim"
+          ]
+        },
+        {
+          "name": "accordion",
+          "instances": [
+            ".ws10-m-accordion",
+            ".ws10-c-accordion-list"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero-pricing",
+          "name": "Hero with Pricing Cards",
+          "selector": ".ws10-m-card-rate-simple",
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            "h1"
+          ]
+        },
+        {
+          "id": "features-bar",
+          "name": "Features Bar",
+          "selector": ".ws10-c-rates-icon-set",
+          "style": "vodafone-dark",
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "advantages-carousel",
+          "name": "Advantages Carousel",
+          "selector": ".ws10-c-card[class*='bg-gradient']",
+          "style": null,
+          "blocks": [
+            "carousel"
+          ],
+          "defaultContent": [
+            "h2"
+          ]
+        },
+        {
+          "id": "cta-banner",
+          "name": "CTA Banner",
+          "selector": ".ws10-c-banner-slim",
+          "style": "vodafone-red",
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "steps-section",
+          "name": "Steps Section",
+          "selector": ".ws10-m-timeline-steps",
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            "h2"
+          ]
+        },
+        {
+          "id": "comparison-table",
+          "name": "Comparison Table",
+          "selector": ".ws10-m-new-table-comparative",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "h2",
+            "table"
+          ]
+        },
+        {
+          "id": "seo-text",
+          "name": "SEO Text",
+          "selector": "[id='1500371068384']",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "h2",
+            "p",
+            "ul"
+          ]
+        },
+        {
+          "id": "legal-text",
+          "name": "Legal Text",
+          "selector": "a[href*='legales']",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "a"
+          ]
+        },
+        {
+          "id": "faq-accordion",
+          "name": "FAQ Accordion",
+          "selector": ".ws10-m-accordion",
+          "style": null,
+          "blocks": [
+            "accordion"
+          ],
+          "defaultContent": [
+            "h2"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vodafone-one-product",
+      "urls": [
+        "https://www.vodafone.es/c/particulares/es/productos-y-servicios/vodafone-one/"
+      ],
+      "description": "Vodafone One converged product page with bundle offers combining mobile, fiber, and TV services with pricing plans.",
+      "blocks": [
+        {
+          "name": "cards",
+          "instances": [
+            ".ws10-m-card-rate-simple",
+            ".ws10-c-card-addons"
+          ]
+        },
+        {
+          "name": "columns",
+          "instances": [
+            ".ws10-m-text-image",
+            ".ws10-c-carousel--secondary"
+          ]
+        },
+        {
+          "name": "accordion",
+          "instances": [
+            ".ws10-m-accordion",
+            ".ws10-c-accordion-list"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero-pricing",
+          "name": "Hero Pricing Section",
+          "selector": ".ws10-m-card-rate-simple",
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            "h1"
+          ]
+        },
+        {
+          "id": "plan-configurator",
+          "name": "Plan Configurator",
+          "selector": "[id='1500319970736']",
+          "style": "light-grey",
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "standalone-price",
+          "name": "Standalone Price Card",
+          "selector": ".ws10-c-label-card",
+          "style": "light-grey",
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "comparison-table",
+          "name": "Comparison Table",
+          "selector": ".ws10-m-new-table-comparative",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "h2",
+            "table"
+          ]
+        },
+        {
+          "id": "streaming-services",
+          "name": "Streaming Services",
+          "selector": ".ws10-c-carousel--secondary",
+          "style": null,
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": [
+            "h2"
+          ]
+        },
+        {
+          "id": "two-column-features",
+          "name": "Two Column Features",
+          "selector": ".ws10-m-text-image",
+          "style": null,
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "steps-section",
+          "name": "Steps Section",
+          "selector": ".ws10-m-timeline-steps",
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            "h2"
+          ]
+        },
+        {
+          "id": "seo-text",
+          "name": "SEO Text",
+          "selector": "[id='1500371068384']",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "h2",
+            "p",
+            "ul"
+          ]
+        },
+        {
+          "id": "faq-section",
+          "name": "FAQ Accordion",
+          "selector": ".ws10-m-accordion",
+          "style": null,
+          "blocks": [
+            "accordion"
+          ],
+          "defaultContent": [
+            "h2"
+          ]
+        },
+        {
+          "id": "legal-link",
+          "name": "Legal Link",
+          "selector": "a[href*='legales']",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "a"
+          ]
+        }
+      ]
     }
   ]
 }

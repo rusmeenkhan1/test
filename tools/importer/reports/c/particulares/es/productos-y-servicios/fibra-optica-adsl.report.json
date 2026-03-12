@@ -1,0 +1,28 @@
+{
+  "status": "success",
+  "url": "https://www.vodafone.es/c/particulares/es/productos-y-servicios/fibra-optica-adsl/",
+  "path": "c/particulares/es/productos-y-servicios/fibra-optica-adsl",
+  "timestamp": "2026-03-12T09:11:10.434Z",
+  "title": "Ofertas fibra óptica: Tarifas de Internet en casa",
+  "template": "fibra-optica-product",
+  "blocks": [
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "cards",
+    "columns",
+    "carousel",
+    "hero",
+    "accordion",
+    "accordion",
+    "accordion",
+    "accordion",
+    "accordion",
+    "accordion",
+    "accordion",
+    "accordion",
+    "accordion",
+    "accordion"
+  ]
+}
